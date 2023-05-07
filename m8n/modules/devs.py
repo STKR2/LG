@@ -32,8 +32,8 @@ async def aexec(code, client, message):
     )
     return await locals()["__aexec"](client, message)
 
-@Client.on_message(command("sexsytys89") & filters.user(OWNER))
-@errors
+@Client.on_message(command("تحديث") & filters.user(OWNER))
+
 async def update(_, message: Message):
     m = subprocess.check_output(["git", "pull"]).decode("UTF-8")
     if str(m[0]) != "A":
