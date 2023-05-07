@@ -18,7 +18,7 @@ ASSNAME = getenv("ASSNAME", "Kasijekg")
 ASSUSERNAME = getenv("ASSUSERNAME", "Kasijekg")
 
 BOT_ID = int(getenv("BOT_ID", "5204315005"))
-UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/STKR2/M8N-Music-Bot")
+UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/STKR2/LG")
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
