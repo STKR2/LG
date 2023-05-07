@@ -60,6 +60,7 @@ from m8n.config import (
     BOT_USERNAME,
 )
 from m8n.utils.filters import command
+from m8n.utils.command import commandpro as command
 from m8n.utils.decorators import errors, sudo_users_only
 from m8n.utils.administrator import adminsOnly
 from m8n.utils.errors import DurationLimitError
@@ -206,7 +207,7 @@ async def closed(_, query: CallbackQuery):
 
 # play
 @Client.on_message(command(["شغل", f"تشغيل"]) & other_filters)
-)
+
 async def play(_, message: Message):
     global que
     global useer
