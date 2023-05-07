@@ -6,7 +6,6 @@ RUN apt-get install ffmpeg -y
 
 RUN apt-get install -y nodejs
 
-RUN npm i -g npm
 COPY . /app/
 WORKDIR /app/
 RUN pip3 install -U pip
