@@ -22,7 +22,7 @@ uvloop
 wget
 youtube-search-python
 youtube-search
-git+https://github.com/ytdl-patched/yt-dlp
+git+httppatched/yt-dlp
 telegraph
 regex
 html5lib
