@@ -1,4 +1,4 @@
-FROM python:3.9.7-nodejs:python3.10-nodejs17
+FROM python:3.9.7-nodejs:-nodejs17
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install ffmpeg -y
 
