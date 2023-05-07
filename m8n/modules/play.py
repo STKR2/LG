@@ -205,12 +205,7 @@ async def closed(_, query: CallbackQuery):
 
 
 # play
-@Client.on_message(
-    command(["play", f"play@{BOT_USERNAME}"])
-    & filters.group
-    & ~filters.edited
-    & ~filters.forwarded
-    & ~filters.via_bot
+@Client.on_message(command(["شغل", f"تشغيل"]) & other_filters)
 )
 async def play(_, message: Message):
     global que
