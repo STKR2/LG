@@ -60,7 +60,7 @@ from m8n.config import (
     BOT_USERNAME,
 )
 from m8n.utils.filters import command
-from m8n.utils.filters import command commandpro as command
+from m8n.utils.filters command import commandpro as command
 from m8n.utils.decorators import errors, sudo_users_only
 from m8n.utils.administrator import adminsOnly
 from m8n.utils.errors import DurationLimitError
