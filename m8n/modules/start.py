@@ -16,26 +16,24 @@ from m8n.config import BOT_NAME
 async def start_(client: Client, message: Message):
     await message.reply_photo(
         photo=f"{START_PIC}",
-        caption=f"""Hello 👋 My name is **{BOT_NAME}**
+        caption=f""" ‹ مرحبا بك عزيزي في بوت **{BOT_NAME}**
+        
+- اضغط على زر ‹ الاوامر › لمعرفة الأوامر ›
 
-I'm most complete voice chat music player for playing high quality and unbreakable music in your groups voice chat with some useful features.
-
-Use inline buttons given below to know more about me !!""",
-    reply_markup=InlineKeyboardMarkup(
+- اضغط على زر ‹ الاعدادات › لمعرفة المطورين ›""",
+        reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "🏳‍🌈 About", callback_data="cbabout"),
-                    InlineKeyboardButton(
-                        "☁️ Others", callback_data="others")
+                        "‹ الاعدادات ›", callback_data="cbabout"),
                 ],
                 [
                     InlineKeyboardButton(
-                        "🗂 Commands", callback_data="cbevery")
+                        "‹ الاوامر ›", callback_data="cbevery")
                 ],
                 [
                     InlineKeyboardButton(
-                        "✚ Click here to Summon Me", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+                        "‹ اضفني الى مجموعتك ›", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ]
            ]
         ),
