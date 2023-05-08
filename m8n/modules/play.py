@@ -400,7 +400,7 @@ async def play(_, message: Message):
                     try:
                         if eta > 2:
                             lel.edit(
-                                "‹ يتم التشغيل الان ›"
+                                f"‹ يتم التشغيل الان ›"
                             )
                     except Exception as e:
                         pass
@@ -409,30 +409,30 @@ async def play(_, message: Message):
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                "‹ يتم التشغيل الان ›"
+                                f"‹ يتم التشغيل الان ›"
                             )
                         print(
-                            "‹ يتم التشغيل الان ›"
+                            f"‹ يتم التشغيل الان ›"
                         )
                 if per > 500:
                     if flex[str(bytesx)] == 3:
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                "‹ يتم التشغيل الان ›"
+                                f"‹ يتم التشغيل الان ›"
                             )
                         print(
-                            "‹ يتم التشغيل الان ›"
+                            f"‹ يتم التشغيل الان ›"
                         )
                 if per > 800:
                     if flex[str(bytesx)] == 4:
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                "‹ يتم التشغيل الان ›"
+                                f"‹ يتم التشغيل الان ›"
                             )
                         print(
-                            "‹ يتم التشغيل الان ›"
+                            f"‹ يتم التشغيل الان ›"
                         )
             if d["status"] == "finished":
                 try:
@@ -441,9 +441,9 @@ async def play(_, message: Message):
                     taken = "00:00"
                 size = d["_total_bytes_str"]
                 lel.edit(
-                    "‹ يتم التشغيل الان ›"
+                    f"‹ يتم التشغيل الان ›"
                 )
-                print("‹ يتم التشغيل الان ›")
+                print(f"‹ يتم التشغيل الان ›")
 
         loop = asyncio.get_event_loop()
         x = await loop.run_in_executor(None, download, url, my_hook)
@@ -453,10 +453,10 @@ async def play(_, message: Message):
             return await lel.edit(
                 "❌ **Song not found! Try searching with the correct title\nExample » /play 295**"
             )
-        await lel.edit("‹ يتم التشغيل الان ›")
+        await lel.edit(f"‹ يتم التشغيل الان ›")
         query = message.text.split(None, 1)[1]
         # print(query)
-        await lel.edit("‹ يتم التشغيل الان ›")
+        await lel.edit(f"‹ يتم التشغيل الان ›")
         try:
             results = YoutubeSearch(query, max_results=5).to_dict()
             url = f"https://youtube.com{results[0]['url_suffix']}"
@@ -520,7 +520,7 @@ async def play(_, message: Message):
                     try:
                         if eta > 2:
                             lel.edit(
-                                "‹ يتم التشغيل الان ›"
+                                f"‹ يتم التشغيل الان ›"
                             )
                     except Exception as e:
                         pass
@@ -529,30 +529,30 @@ async def play(_, message: Message):
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                "‹ يتم التشغيل الان ›"
+                                f"‹ يتم التشغيل الان ›"
                             )
                         print(
-                            "‹ يتم التشغيل الان ›"
+                            f"‹ يتم التشغيل الان ›"
                         )
                 if per > 500:
                     if flex[str(bytesx)] == 3:
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                "‹ يتم التشغيل الان ›"
+                                f"‹ يتم التشغيل الان ›"
                             )
                         print(
-                            "‹ يتم التشغيل الان ›"
+                            f"‹ يتم التشغيل الان ›"
                         )
                 if per > 800:
                     if flex[str(bytesx)] == 4:
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                "‹ يتم التشغيل الان ›"
+                                f"‹ يتم التشغيل الان ›"
                             )
                         print(
-                            "‹ يتم التشغيل الان ›"
+                            f"‹ يتم التشغيل الان ›"
                         )
             if d["status"] == "finished":
                 try:
@@ -561,9 +561,9 @@ async def play(_, message: Message):
                     taken = "00:00"
                 size = d["_total_bytes_str"]
                 lel.edit(
-                    "‹ يتم التشغيل الان ›"
+                    f"‹ يتم التشغيل الان ›"
                 )
-                print("‹ يتم التشغيل الان ›")
+                print(f"‹ يتم التشغيل الان ›")
 
         loop = asyncio.get_event_loop()
         x = await loop.run_in_executor(None, download, url, my_hook)
