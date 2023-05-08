@@ -1,4 +1,4 @@
-# Copyright (©️) @M8N_OFFICIAL
+# Copyright (©️) xl444
 # By : Pavan Magar
 
 from pyrogram import Client
@@ -10,4 +10,5 @@ from m8n.config import (
 )
 
 USER.send_message(message.chat.id,"‹ هلا حبيبي › \n\n - هذا حساب المساعد يعني رد تلقائي \n - اذا عندك مشكلة راسل المطور وبس")
-  return
+          
+return
