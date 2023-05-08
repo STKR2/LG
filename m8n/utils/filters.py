@@ -10,6 +10,6 @@ other_filters2 = (
     filters.private & ~filters.edited & ~filters.via_bot & ~filters.forwarded
 )
 
+def commandpro(commands: Union[str, List[str]]):
 
-def command(commands: Union[str, List[str]]):
-    return filters.command(commands, CMD_MUSIC)
+    return filters.command(commands,"")
