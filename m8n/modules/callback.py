@@ -23,16 +23,12 @@ async def cbhome(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                    )
-                ],
-                [        "‹ الاعدادات ›", callback_data="cbabout"),
-                    InlineKeyboardButton(
-                    ),
+                        "‹ الاعدادات ›", callback_data="cbabout"),
                 ],
                 [
+
                     InlineKeyboardButton(
                         "‹ الاوامر ›", callback_data="cbevery")
-                    ),
                 ],
                 [
                     InlineKeyboardButton(
