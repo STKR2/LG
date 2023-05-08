@@ -2,7 +2,6 @@ from typing import List, Union
 
 from pyrogram import filters
 
-from m8n.config import CMD_MUSIC, SUDO_USERS
 
 other_filters = filters.group & ~filters.edited & ~filters.via_bot & ~filters.forwarded
 
@@ -11,5 +10,4 @@ other_filters2 = (
 )
 
 def commandpro(commands: Union[str, List[str]]):
-
     return filters.command(commands,"")
