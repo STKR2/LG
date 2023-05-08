@@ -17,7 +17,8 @@ def time_to_seconds(time):
 
 
 @app.on_message(command(["بحث", f"يوت"])
-def song(client, message):
+& ~filters.edited)
+def song(_, message):
 
     user_id = message.from_user.id
     user_name = message.from_user.first_name
