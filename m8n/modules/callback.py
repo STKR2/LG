@@ -14,26 +14,26 @@ from m8n.config import BOT_NAME
 @Client.on_callback_query(filters.regex("cbhome"))
 async def cbhome(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""Hello [👋]({START_PIC}) My name is **{BOT_NAME}**
+        f""" ‹ مرحبا بك عزيزي في بوت **{BOT_NAME}**
 
-I'm most complete voice chat music player for playing high quality and unbreakable music in your groups voice chat with some useful features.
+- اضغط على زر ‹ الاوامر › لمعرفة الأوامر ›
 
-Use inline buttons given below to know more about me !!""",
+ - اضغط على زر ‹ الاعدادات › لمعرفة المطورين ›""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "🏳‍🌈 About", callback_data="cbabout"),
+                        "‹ الاعدادات ›", callback_data="cbabout"),
                     InlineKeyboardButton(
-                        "☁️ Others", callback_data="others")
+
                 ],
                 [
                     InlineKeyboardButton(
-                        "🗂 Commands", callback_data="cbevery")
+                        "‹ الاوامر ›", callback_data="cbevery")
                 ],
                 [
                     InlineKeyboardButton(
-                        "✚ Click here to Summon Me", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+                        "‹ اضفني الى مجموعتك ›", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ]
                 
            ]
@@ -45,18 +45,18 @@ Use inline buttons given below to know more about me !!""",
 async def cbcmds_set(_, query: CallbackQuery):
         await query.answer("commands menu")
         await query.edit_message_text(
-        f"""Hello 👋 [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) 
+        f"""‹ مرحا بك في قسم الاوامر  › [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) 
 
-Check out all the commands given below by Click on the given inline buttons !!""",
+- يمكنك معرفة الاوامر عن طريق الازرار أدناه -""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("Sudo Users", callback_data="cbsudo"),
+                    InlineKeyboardButton("‹ اوامر المطورين ›", callback_data="cbsudo"),
                 ],[
                     InlineKeyboardButton("Everyone", callback_data="cbevery"),
-                    InlineKeyboardButton("Group Admins", callback_data="cbadmins"),
+                    InlineKeyboardButton("‹ اوامر المشرفين ›", callback_data="cbadmins"),
                 ],[
-                    InlineKeyboardButton("⬅️ Back", callback_data="cbhome")
+                    InlineKeyboardButton("‹ رجوع ›", callback_data="cbhome")
                 ],
             ]
         ),
@@ -92,11 +92,11 @@ async def all_set(_, query: CallbackQuery):
             [
               [
                     InlineKeyboardButton(
-                        "Admins", callback_data="cbadmins"),
+                        "‹ اوامر المشرفين ›", callback_data="cbadmins"),
                     InlineKeyboardButton(
-                        "Sudo/Owner", callback_data="cbsudo")
+                        "‹ اوامر المطورين ›", callback_data="cbsudo")
                 ],
-              [InlineKeyboardButton("⬅️ Back", callback_data="cbhome")]]
+              [InlineKeyboardButton("‹ رجوع ›", callback_data="cbhome")]]
         ),
     )
 
@@ -172,21 +172,21 @@ async def admin_set(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbabout"))
 async def about_set(_, query: CallbackQuery):
     await query.edit_message_text(
-    f"""Hello 👋 [{query.message.chat.first_name}](tg://user?id={query.message.chat.id})
+    f"""‹ مرحبا بك في قسم الاعدادات  › [{query.message.chat.first_name}](tg://user?id={query.message.chat.id})
 
-Click on the given inline buttons to know all the information about the Bot !!""",
+- يمكنك الانضمام والتواصل مع المطورين عن طريق الازرار أدناه""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📨 Support", url=f"https://t.me/{SUPPORT}"),
-                    InlineKeyboardButton("📨 Updates", url=f"https://t.me/{UPDATE}")
+                    InlineKeyboardButton("‹ قناة الدعم ›", url=f"https://t.me/{SUPPORT}"),
+                    InlineKeyboardButton("‹ قناة المطور ›", url=f"https://t.me/{UPDATE}")
                 ],[
-                    InlineKeyboardButton("👤 Owner", url=f"https://t.me/{OWNER_USERNAME}"),
-                    InlineKeyboardButton("🎸 Assistant", url=f"https://t.me/{ASSUSERNAME}")
+                    InlineKeyboardButton("‹ مطور البوت ›", url=f"https://t.me/{OWNER_USERNAME}"),
+                    InlineKeyboardButton("‹ حساب المساعد ›", url=f"https://t.me/{ASSUSERNAME}")
                 ],[
-                    InlineKeyboardButton("🤖 Source Code", url="https://github.com/UnknownMortal/M8N-Music-Bot")
+                    InlineKeyboardButton("‹ السورس ›", url="https://t.me/Xl444")
                 ],[
-                    InlineKeyboardButton("⬅️ Back", callback_data="cbhome")
+                    InlineKeyboardButton("‹ رجوع ›", callback_data="cbhome")
                 ],
             ]
         ),
