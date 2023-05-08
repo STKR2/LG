@@ -32,6 +32,7 @@ from pytgcalls import __version__ as pytover
 
 from m8n import (BOT_ID, BOT_NAME, SUDO_USERS, app, boottime)
 from m8n import client as userbot
+from m8n.utils.filters import command
 from m8n.database.chats import get_served_chats
 from m8n.database.sudo import get_sudoers
 from m8n.database.ping import get_readable_time
