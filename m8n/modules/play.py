@@ -400,7 +400,7 @@ async def play(_, message: Message):
                     try:
                         if eta > 2:
                             lel.edit(
-                                f"‹ يتم التشغيل الان ›
+                                "‹ يتم التشغيل الان ›
                             )
                     except Exception as e:
                         pass
