@@ -55,23 +55,23 @@ stats1 = InlineKeyboardMarkup(
     [
         [
             InlineKeyboardButton(
-                text="System 🖥️", callback_data=f"sys_stats"
+                text="‹ النظام ›", callback_data=f"sys_stats"
             ),
             InlineKeyboardButton(
-                text="Bots 🤖", callback_data=f"bot_stats"
+                text="‹ البوت ›", callback_data=f"bot_stats"
             ),
         ],
         [
             InlineKeyboardButton(
-                text="Assist 🙋🏻‍♂️", callback_data=f"assis_stats"
+                text="‹ حساب المساعد ›", callback_data=f"assis_stats"
             ),
             InlineKeyboardButton(
-                text="Storage 🔋", callback_data=f"sto_stats"
+                text="‹ التخزين ›", callback_data=f"sto_stats"
             )
         ],
        [
             InlineKeyboardButton(
-                text="Close Stats 🗑️", callback_data=f"statsclose"
+                text="‹ مسح ›", callback_data=f"statsclose"
             ),
         ],
     ]
@@ -81,7 +81,7 @@ statsback = InlineKeyboardMarkup(
     [
         [
             InlineKeyboardButton(
-                text="🔙 Back Home", callback_data=f"gen_stats"
+                text="‹ رجوع ›", callback_data=f"gen_stats"
             ),
         ],
     ]
@@ -104,14 +104,16 @@ async def bot_sys_stats():
     mem = psutil.virtual_memory().percent
     disk = psutil.disk_usage("/").percent
     stats = f"""
-**• Uptime :** {get_readable_time((bot_uptime))}
-**• CPU :** {cpu}%
-**• RAM :** {mem}%
-**• Disk : **{disk}%"""
+**• وقت التشغيل :** {get_readable_time((bot_uptime))}
+**• المعالج :** {cpu}%
+**• الرام :** {mem}%
+**• التخزين : **{disk}%"""
     return stats
 
 
-@app.on_message(filters.command("stats") & ~filters.edited)
+
+
+@app.on_message(command(["الاحصائيات") & ~filters.edited)
 async def gstats(_, message):
     start = datetime.now()
     try:
@@ -121,7 +123,7 @@ async def gstats(_, message):
     uptime = await bot_sys_stats()
     response = await message.reply_photo(
         photo=f"{IMG_1}",
-        caption=f"""Getting Stats..."""
+         caption=f"""‹ فتح الاعدادت ›"""
     )
     end = datetime.now()
     resp = (end - start).microseconds / 1000
