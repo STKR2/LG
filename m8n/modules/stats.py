@@ -113,7 +113,8 @@ async def bot_sys_stats():
 
 
 
-@app.on_message(command(["الاحصائيات") 
+@app.on_message(command(["العدد", f"الاحصائيات"])
+& ~filters.edited) 
 async def gstats(_, message):
     start = datetime.now()
     try:
