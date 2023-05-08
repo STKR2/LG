@@ -11,5 +11,6 @@ from m8n.config import (
 
 @USER.on_message(filters.text & filters.private & ~filters.me & ~filters.bot)
 async def pmPermit(client: USER, message: Message):
-  await USER.send_message(message.chat.id,"Hey 👋 I am the assistant of music bot, didn't have a time to talk with you 🙂 kindly join @M8N_SUPPORT for getting support\n\nPowered by @M8N_OFFICIAL")
+  await USER.send_message(message.chat.id,"‹ هلا حبيبي › \n\n - اتمنى ماتدز رسائل واذا عندك شي راسل مطور البوت \n - هذا حساب المساعد لتشغيل الاغاني فقط
+")
   return
