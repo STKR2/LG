@@ -59,10 +59,10 @@ from m8n.config import (
     UPDATE,
     BOT_USERNAME,
 )
-from m8n.utils.filters import command
-from m8n.modules.filters import command, other_filters
 
-from m8n.modules.command import commandpro as command
+from m8n.utils.filters import command, other_filters
+
+from m8n.utils.command import commandpro as command
 
 from m8n.utils.decorators import errors, sudo_users_only
 
