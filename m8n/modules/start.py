@@ -4,7 +4,7 @@ from pyrogram import Client, filters, __version__ as pyrover
 from pyrogram.errors import FloodWait, UserNotParticipant
 from pytgcalls import (__version__ as pytover)
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, ChatJoinRequest
-from m8n.
+from m8n.utils.filters import command
 from m8n.utils.filters import command, other_filters
 
 from m8n.config import BOT_USERNAME
