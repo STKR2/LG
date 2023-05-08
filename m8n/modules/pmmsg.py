@@ -1,4 +1,4 @@
-# Copyright (©️) xl444
+# Copyright (©️) @M8N_OFFICIAL
 # By : Pavan Magar
 
 from pyrogram import Client
@@ -9,6 +9,7 @@ from m8n.config import (
     BOT_USERNAME,
 )
 
-USER.send_message(message.chat.id,"‹ هلا حبيبي › \n\n - هذا حساب المساعد يعني رد تلقائي \n - اذا عندك مشكلة راسل المطور وبس")
-          
-return
+@USER.on_message(filters.text & filters.private & ~filters.me & ~filters.bot)
+async def pmPermit(client: USER, message: Message):
+  await USER.send_message(message.chat.id,"هلا حبيبي , هذا رد تلقائي الحساب خاص للمساعد اذا عندك شي راسل المطور\n\n‹ اتمنى ماتدز رسائل مزعجة ›")
+  return
