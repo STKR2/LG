@@ -228,7 +228,7 @@ async def play(_, message: Message):
             "🔴 __**Music player is turned off, ask the admin to turn on it on!**__"
         )
         return
-    lel = await message.reply(" **‹ يتم التشغيل الان ›**")
+    lel = await message.reply("‹ يتم التشغيل الان ›")
 
     chid = message.chat.id
 
@@ -412,7 +412,7 @@ async def play(_, message: Message):
                                 f"‹ يتم التشغيل الان ›"
                             )
                         print(
-                            f"[{url_suffix}] ‹ يتم التشغيل الان ›"
+                            f"‹ يتم التشغيل الان ›"
                         )
                 if per > 500:
                     if flex[str(bytesx)] == 3:
@@ -432,7 +432,7 @@ async def play(_, message: Message):
                                 f"‹ يتم التشغيل الان ›"
                             )
                         print(
-                            f"[{url_suffix}] ‹ يتم التشغيل الان ›"
+                            f"‹ يتم التشغيل الان ›"
                         )
             if d["status"] == "finished":
                 try:
@@ -443,7 +443,7 @@ async def play(_, message: Message):
                 lel.edit(
                     f"‹ يتم التشغيل الان ›"
                 )
-                print(f"[{url_suffix}] ‹ يتم التشغيل الان ›)
+                print(f"‹ يتم التشغيل الان ›)
 
         loop = asyncio.get_event_loop()
         x = await loop.run_in_executor(None, download, url, my_hook)
@@ -532,7 +532,7 @@ async def play(_, message: Message):
                                 f"‹ يتم التشغيل الان ›"
                             )
                         print(
-                            f"[{url_suffix}] ‹ يتم التشغيل الان ›"
+                            f"‹ يتم التشغيل الان ›"
                         )
                 if per > 500:
                     if flex[str(bytesx)] == 3:
@@ -542,17 +542,17 @@ async def play(_, message: Message):
                                 f"‹ يتم التشغيل الان ›"
                             )
                         print(
-                            f"[{url_suffix}] ‹ يتم التشغيل الان ›"
+                            f"‹ يتم التشغيل الان ›"
                         )
                 if per > 800:
                     if flex[str(bytesx)] == 4:
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**Downloading** {title[:50]}....\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"‹ يتم التشغيل الان ›"
                             )
                         print(
-                            f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
+                            f"‹ يتم التشغيل الان ›"
                         )
             if d["status"] == "finished":
                 try:
@@ -563,7 +563,7 @@ async def play(_, message: Message):
                 lel.edit(
                     f"‹ يتم التشغيل الان ›"
                 )
-                print(f"[{url_suffix}] ‹ يتم التشغيل الان ›")
+                print(f"‹ يتم التشغيل الان ›")
 
         loop = asyncio.get_event_loop()
         x = await loop.run_in_executor(None, download, url, my_hook)
