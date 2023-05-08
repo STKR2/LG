@@ -312,7 +312,7 @@ async def play(_, message: Message):
         file_name = get_file_name(audio)
         url = f"https://t.me/{UPDATE}"
         title = audio.title
-        thumb_name = "https://telegra.ph/file/a7adee6cf365d74734c5d.png"
+        thumb_name = "https://te.legra.ph/file/5fdd8da2461c05d893189.jpg"
         thumbnail = thumb_name
         duration = round(audio.duration / 60)
         views = "Locally added"
@@ -367,7 +367,7 @@ async def play(_, message: Message):
 
         except Exception as e:
             title = "NaN"
-            thumb_name = "https://telegra.ph/file/a7adee6cf365d74734c5d.png"
+            thumb_name = "https://te.legra.ph/file/5fdd8da2461c05d893189.jpg"
             duration = "NaN"
             views = "NaN"
             keyboard = InlineKeyboardMarkup(
@@ -572,7 +572,7 @@ async def play(_, message: Message):
     if await is_active_chat(message.chat.id):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
-            photo="final.png",
+            photo="https://te.legra.ph/file/5fdd8da2461c05d893189.jpg",
             caption="**[Get Additional Information ⚠️]({})**\n\n**👤 Bot User : {}**\n**📀 Track : {}**".format(
                 url,
                 message.from_user.mention(),
@@ -599,12 +599,12 @@ async def play(_, message: Message):
         await music_on(message.chat.id)
         await add_active_chat(message.chat.id)
         await message.reply_photo(
-            photo="final.png",
+            photo="https://te.legra.ph/file/5fdd8da2461c05d893189.jpg",
             reply_markup=keyboard,
             caption="**[Get Additional Information ⚠️]({})\n\n**👤 Bot User : {}**\n🌐 Group : {}**".format(
                 url, message.from_user.mention(), message.chat.title
             ),
         )
 
-    os.remove("final.png")
+    os.remove("https://te.legra.ph/file/5fdd8da2461c05d893189.jpg")
     return await lel.delete()
