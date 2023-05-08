@@ -18,10 +18,10 @@ from m8n.modules import check_heroku
 from m8n.utils.decorators import errors
 from m8n.database.functions import start_restart_stage
 
-@app.on_message(command(["rebootmusic", "restart"]) & filters.user(OWNER_ID))
+@app.on_message(command(["ريستارت", "ريست"]) & filters.user(OWNER_ID))
 @check_heroku
 async def gib_restart(client, message, hap):
-    msg_ = await message.reply_text(f"[{BOT_NAME}] - Restarting...")
+    msg_ = await message.reply_text(f"[{BOT_NAME}] ‹ جاري اعادة تشغيل البوت ›")
     hap.restart()
 
 
