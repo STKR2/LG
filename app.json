@@ -8,7 +8,7 @@
     "env": {
         "SESSION_NAME": {
             "description": "اكتب هنا كود بايروجرام , يرجى ملاحظة ان علبك استخراجة من موقع القناة حصرا https://replit.com/@freedomSource/Session-Generator#main.py",
-            "required": true,
+            "required": true
         },
         "OWNER_ID": {
             "description": "اكتب ايدي مالك البوت ، او اتركها كما هي",
@@ -68,7 +68,7 @@
         "START_PIC": {
             "description": "ضع رابط صورة تلكراف يضهر لكليشة ستارت",
             "value": "https://te.legra.ph/file/4807752a011965b771900.jpg",
-            "required": true,
+            "required": true
             
         },
         "API_ID": {
