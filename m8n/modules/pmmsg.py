@@ -9,8 +9,5 @@ from m8n.config import (
     BOT_USERNAME,
 )
 
-@USER.on_message(filters.text & filters.private & ~filters.me & ~filters.bot)
-async def pmPermit(client: USER, message: Message):
-  await USER.send_message(message.chat.id,"‹ هلا حبيبي › \n\n - اتمنى ماتدز رسائل واذا عندك شي راسل مطور البوت \n - هذا حساب المساعد لتشغيل الاغاني فقط
-")
+USER.send_message(message.chat.id,"‹ هلا حبيبي › \n\n - هذا حساب المساعد يعني رد تلقائي \n - اذا عندك مشكلة راسل المطور وبس")
   return
