@@ -7,93 +7,94 @@
     "stack": "container",
     "env": {
         "SESSION_NAME": {
-            "description": "fill with the pyrogram session string from account",
+            "description": "اكتب هنا كود بايروجرام , يرجى ملاحظة ان علبك استخراجة من موقع القناة حصرا https://replit.com/@freedomSource/Session-Generator#main.py",
             "required": true
         },
         "OWNER_ID": {
-            "description": "fill with your telegram id as the owner of the bot",
+            "description": "اكتب ايدي مالك البوت ، او اتركها كما هي",
             "required": true,
-            "value": ""
+            "value": "1854384004"
         },
         "ASSID": {
-            "description": "Fill with your music assistant's ID",
+            "description": "اكتب ايدي حساب المساعد ",
             "required": true,
             "value": ""
         },
         "BG_IMG": {
-            "description": "Fill with Telegraph image Link for Thumbnail !!",
+            "description": "يفضل تركها كما هي ، ضع هنا رابط صورة تلكراف يضهر عند تشغيل الاغنية ",
             "required": true,
-            "value": ""
+            "value": "https://te.legra.ph/file/4807752a011965b771900.jpg"
         },
         "ASSNAME": {
-            "description": "Fill with your music Assistant's Name",
+            "description": "اكتب هنا اسم حساب المساعد",
             "required": true,
             "value": ""
         },
         "ASSUSERNAME": {
-            "description": "Fill with your Music Assistant's Username without @",
+            "description": "اكتب هنا يوزر حساب المساعد بدون @",
             "required": true,
             "value": ""
         },
         "BOT_ID": {
-            "description": "fill with telegram id of bot",
+            "description": "اكتب هنا ايدي البوت",
             "required": true,
             "value": ""
         },
         "BOT_USERNAME": {
-            "description": "fill with telegram username of bot without @",
+            "description": "اكتب هنا يوزر البوت بدون @",
             "required": true,
             "value": ""
         },
         "SUPPORT": {
-            "description": "Fill with your support group username without @",
+            "description": "اكتب هنا قناة الدعم او اتركها كما هي",
             "required": true,
-            "value": "M8N_SUPPORT"
+            "value": "xl444"
         },
         "UPDATE": {
-            "description": "Fill with your Update Channel username without @",
+            "description": "اكتب هنا قناة المطور او اتركها كما هي",
             "required": true,
-            "value": "M8N_OFFICIAL"
+            "value": "xl444"
         },
         "OWNER_USERNAME": {
-            "description": "Fill with the Bot Owner Username without @",
+            "description": "اكتب هنا يوزر المطور او المالك",
             "required": true,
-            "value": "Its_romeoo"
+            "value": "RR8R9"
         },
         "BOT_NAME": {
-            "description": "fill with telegram name of bot",
+            "description": "اكتب هنا اسم بوتك او اتركها كما هي",
             "required": true,
-            "value": ""
+            "value": "freedom"
         },
         "START_PIC": {
-            "description": "Enter the telegraph link of an image or contact @M8N_SUPPORT",
-            "value": "https://telegra.ph/file/e3bbcfcf96e85553aff4a.jpg",
-            "required": true
+            "description": "ضع رابط صورة تلكراف يضهر لكليشة ستارت",
+            "value": "https://te.legra.ph/file/4807752a011965b771900.jpg",
+            "required": true,
+            
         },
         "API_ID": {
-            "description": "your Api ID from my.telegram.org/apps",
+            "description": "لاتغيرها ابدا",
             "required": true,
-            "value": ""
+            "value": "8934899"
         },
         "API_HASH": {
-            "description": "your Api Hash from my.telegram.org/apps",
+            "description": "لاتغيرها ابدا",
             "required": true,
-            "value": ""
+            "value": "bf3e98d2c351e4ad06946b4897374a1e"
         },
         "SUDO_USERS": {
-            "description": "fill with the user id who can access all function in your bot (separate with space).",
+            "description": "اكتب هنا ايديات المطورين او اتركها كما هي .",
             "required": true,
-            "value": "5058236569"
+            "value": "1854384004"
         },
         "BOT_TOKEN": {
-            "description": "fill with your bot token get from @BotFather on telegram",
+            "description": "اكتب توكن البوت ",
             "required": true,
             "value": ""
         },
         "MONGO_DB_URI": {
-            "description": "fill with the mongodb url get from mongodb.cloud.com (don't use mine below !!)",
+            "description": "لاتغيرها ابدا ابدا",
             "required": true,
-            "value": ""
+            "value": "mongodb+srv://Lucifer:ASShaw96@cluster0.d1kkw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
         }
     },
     "buildpacks": [
