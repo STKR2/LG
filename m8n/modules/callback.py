@@ -23,14 +23,12 @@ async def cbhome(_, query: CallbackQuery):
             [
                 [
                     InlineKeyboardButton(
-                        "‹ الاعدادات ›", callback_data="cbabout"),
+                ],[        "‹ الاعدادات ›", callback_data="cbabout"),
                     InlineKeyboardButton(
-                ],
-                [
+                ],[
                     InlineKeyboardButton(
                         "‹ الاوامر ›", callback_data="cbevery")
-                ],
-                [
+                ],[
                     InlineKeyboardButton(
                         "‹ اضفني الى مجموعتك ›", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ]
