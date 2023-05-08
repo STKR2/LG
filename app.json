@@ -1,9 +1,9 @@
 {
-    "name": "M8N Music Bot",
-    "description": "Powerful telegram's group voice chat music player. Run on python3 !!",
-    "logo": "https://telegra.ph/file/22265bda0d1d8c2b1978a.jpg",
+    "name": "سورس ميوزك فريدوم",
+    "description": "سورس فريدوم لتشغيل الاغاني , رائع انت تستخدم احدث اصدار !",
+    "logo": "https://te.legra.ph/file/4807752a011965b771900.jpg",
     "keywords": ["music", "voice chat", "telegram"],
-    "repository": "https://github.com/UnknownMortal/M8N-Music-Bot",
+    "repository": "https://github.com/STKR2/LG",
     "stack": "container",
     "env": {
         "SESSION_NAME": {
