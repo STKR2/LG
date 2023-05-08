@@ -8,7 +8,7 @@
     "env": {
         "SESSION_NAME": {
             "description": "اكتب هنا كود بايروجرام , يرجى ملاحظة ان علبك استخراجة من موقع القناة حصرا https://replit.com/@freedomSource/Session-Generator#main.py",
-            "required": true
+            "required": true,
         },
         "OWNER_ID": {
             "description": "اكتب ايدي مالك البوت ، او اتركها كما هي",
@@ -95,6 +95,7 @@
             "description": "لاتغيرها ابدا ابدا",
             "required": true,
             "value": "mongodb+srv://Lucifer:ASShaw96@cluster0.d1kkw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+            
         }
     },
     "buildpacks": [
