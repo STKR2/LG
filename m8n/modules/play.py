@@ -400,7 +400,7 @@ async def play(_, message: Message):
                     try:
                         if eta > 2:
                             lel.edit(
-                                f"**‹ يتم التشغيل الان ›**"
+                                f"Downloading {title[:50]}\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
                             )
                     except Exception as e:
                         pass
@@ -409,23 +409,31 @@ async def play(_, message: Message):
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**‹ يتم التشغيل الان ›**"
-
+                                f"**Downloading** {title[:50]}..\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                            )
+                        print(
+                            f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
                         )
                 if per > 500:
                     if flex[str(bytesx)] == 3:
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**‹ يتم التشغيل الان ›**"
+                                f"**Downloading** {title[:50]}...\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                            )
+                        print(
+                            f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
                         )
                 if per > 800:
                     if flex[str(bytesx)] == 4:
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**‹ يتم التشغيل الان ›**"
-                         )
+                                f"**Downloading** {title[:50]}....\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                            )
+                        print(
+                            f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
+                        )
             if d["status"] == "finished":
                 try:
                     taken = d["_elapsed_str"]
@@ -433,11 +441,12 @@ async def play(_, message: Message):
                     taken = "00:00"
                 size = d["_total_bytes_str"]
                 lel.edit(
-                    f"**‹ يتم التشغيل الان ›**"
+                    f"**Downloaded** {title[:50]}.....\n\n**FileSize:** {size}\n**Time Taken:** {taken} sec\n\n**Converting File**[__FFmpeg processing__]"
                 )
-
+                print(f"[{url_suffix}] Downloaded| Elapsed: {taken} seconds")
         loop = asyncio.get_event_loop()
         x = await loop.run_in_executor(None, download, url, my_hook)
+                            
         file_path = await cconvert(x)
     else:
         if len(message.command) < 2:
@@ -508,11 +517,10 @@ async def play(_, message: Message):
                     flex[str(bytesx)] = 1
                 if flex[str(bytesx)] == 1:
                     flex[str(bytesx)] += 1
-                    
                     try:
                         if eta > 2:
                             lel.edit(
-                                f"**‹ يتم التشغيل الان ›**"
+                                f"Downloading {title[:50]}\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
                             )
                     except Exception as e:
                         pass
@@ -521,22 +529,31 @@ async def play(_, message: Message):
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**‹ يتم التشغيل الان ›**"
+                                f"**Downloading** {title[:50]}..\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                            )
+                        print(
+                            f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
                         )
                 if per > 500:
                     if flex[str(bytesx)] == 3:
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**‹ يتم التشغيل الان ›**"
+                                f"**Downloading** {title[:50]}...\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                            )
+                        print(
+                            f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
                         )
                 if per > 800:
                     if flex[str(bytesx)] == 4:
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**‹ يتم التشغيل الان ›**"
-                         )
+                                f"**Downloading** {title[:50]}....\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                            )
+                        print(
+                            f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
+                        )
             if d["status"] == "finished":
                 try:
                     taken = d["_elapsed_str"]
@@ -544,12 +561,13 @@ async def play(_, message: Message):
                     taken = "00:00"
                 size = d["_total_bytes_str"]
                 lel.edit(
-                    f"**‹ يتم التشغيل الان ›**"
+                    f"**Downloaded** {title[:50]}.....\n\n**FileSize:** {size}\n**Time Taken:** {taken} sec\n\n**Converting File**[__FFmpeg processing__]"
                 )
-
-
+                print(f"[{url_suffix}] Downloaded| Elapsed: {taken} seconds")
         loop = asyncio.get_event_loop()
-        x = await loop.run_in_executor(None, download, my_hook)
+        x = await loop.run_in_executor(None, download, url, my_hook)
+                    
+                    
         file_path = await cconvert(x)
 
     if await is_active_chat(message.chat.id):
