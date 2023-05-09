@@ -450,7 +450,7 @@ async def play(_, message: Message):
         await lel.edit(f"‹ يتم التشغيل الان ›")
         try:
             results = YoutubeSearch(query, max_results=5).to_dict()
-            url = f"https://youtube.com{results[0]['url_suffix']}"
+
             # print results
             title = results[0]["title"]
             thumbnail = results[0]["thumbnails"][0]
@@ -549,14 +549,14 @@ async def play(_, message: Message):
 
 
         loop = asyncio.get_event_loop()
-        x = await loop.run_in_executor(None, download, url, my_hook)
+        x = await loop.run_in_executor(None, download, my_hook)
         file_path = await cconvert(x)
 
     if await is_active_chat(message.chat.id):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
             photo="https://te.legra.ph/file/5fdd8da2461c05d893189.jpg",
-            caption="**[Get Additional Information ⚠️]({})**\n\n**👤 Bot User : {}**\n**📀 Track : {}**".format(
+            caption="**Get Additional Information ⚠️**\n\n**👤 Bot User : {}**\n**📀 Track : {}**".format(
                 url,
                 message.from_user.mention(),
                 position,
@@ -584,7 +584,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="https://te.legra.ph/file/5fdd8da2461c05d893189.jpg",
             reply_markup=keyboard,
-            caption="**[Get Additional Information ⚠️]({})\n\n**👤 Bot User : {}**\n🌐 Group : {}**".format(
+            caption="**Get Additional Information ⚠️\n\n**👤 Bot User : {}**\n🌐 Group : {}**".format(
                 url, message.from_user.mention(), message.chat.title
             ),
         )
