@@ -487,8 +487,8 @@ async def play(_, message: Message):
                 [
                     InlineKeyboardButton("‹ تحكم اونلاين ›", callback_data="cbmenu"),
                 ],
-                
-
+                   
+       
             ]
         )
 
