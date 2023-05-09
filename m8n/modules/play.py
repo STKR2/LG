@@ -207,7 +207,7 @@ async def closed(_, query: CallbackQuery):
 
 # play
 @Client.on_message(
-    command(["play", f"play@{BOT_USERNAME}"])
+    command(["شغل", f"play@{BOT_USERNAME}"])
     & filters.group
     & ~filters.edited
     & ~filters.forwarded
@@ -227,7 +227,7 @@ async def play(_, message: Message):
             "🔴 __**Music player is turned off, ask the admin to turn on it on!**__"
         )
         return
-    lel = await message.reply("🔄 **Processing...**")
+    lel = await message.reply("‹ يتم البحث الان ›")
 
     chid = message.chat.id
 
@@ -311,7 +311,7 @@ async def play(_, message: Message):
         file_name = get_file_name(audio)
         url = f"https://t.me/{UPDATE}"
         title = audio.title
-        thumb_name = "https://telegra.ph/file/a7adee6cf365d74734c5d.png"
+        thumb_name = "https://te.legra.ph/file/5fdd8da2461c05d893189.jpg"
         thumbnail = thumb_name
         duration = round(audio.duration / 60)
         views = "Locally added"
@@ -366,7 +366,7 @@ async def play(_, message: Message):
 
         except Exception as e:
             title = "NaN"
-            thumb_name = "https://telegra.ph/file/a7adee6cf365d74734c5d.png"
+            thumb_name = "https://te.legra.ph/file/5fdd8da2461c05d893189.jpg"
             duration = "NaN"
             views = "NaN"
             keyboard = InlineKeyboardMarkup(
@@ -399,7 +399,7 @@ async def play(_, message: Message):
                     try:
                         if eta > 2:
                             lel.edit(
-                                f"Downloading {title[:50]}\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"‹ يتم التشغيل الان ›"
                             )
                     except Exception as e:
                         pass
@@ -408,7 +408,7 @@ async def play(_, message: Message):
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**Downloading** {title[:50]}..\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"‹ يتم البحث الان ›"
                             )
                         print(
                             f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
@@ -418,7 +418,7 @@ async def play(_, message: Message):
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**Downloading** {title[:50]}...\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"‹ يتم التشغيل الان ›"
                             )
                         print(
                             f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
@@ -428,7 +428,7 @@ async def play(_, message: Message):
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**Downloading** {title[:50]}....\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"‹ يتم البحث الان ›"
                             )
                         print(
                             f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
@@ -440,7 +440,7 @@ async def play(_, message: Message):
                     taken = "00:00"
                 size = d["_total_bytes_str"]
                 lel.edit(
-                    f"**Downloaded** {title[:50]}.....\n\n**FileSize:** {size}\n**Time Taken:** {taken} sec\n\n**Converting File**[__FFmpeg processing__]"
+                    f"‹ يتم التشغيل الان ›"
                 )
                 print(f"[{url_suffix}] Downloaded| Elapsed: {taken} seconds")
 
@@ -452,10 +452,10 @@ async def play(_, message: Message):
             return await lel.edit(
                 "❌ **Song not found! Try searching with the correct title\nExample » /play 295**"
             )
-        await lel.edit("🔎 **Finding the song...**")
+        await lel.edit("‹ يتم البحث الان ›")
         query = message.text.split(None, 1)[1]
         # print(query)
-        await lel.edit("🌟 **Processing sounds...**")
+        await lel.edit("‹ يتم التشغيل الان ›")
         try:
             results = YoutubeSearch(query, max_results=5).to_dict()
             url = f"https://youtube.com{results[0]['url_suffix']}"
@@ -519,7 +519,7 @@ async def play(_, message: Message):
                     try:
                         if eta > 2:
                             lel.edit(
-                                f"Downloading {title[:50]}\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"‹ يتم البحث الان ›"
                             )
                     except Exception as e:
                         pass
@@ -528,7 +528,7 @@ async def play(_, message: Message):
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**Downloading** {title[:50]}..\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"‹ يتم التشغيل الان ›"
                             )
                         print(
                             f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
@@ -538,7 +538,7 @@ async def play(_, message: Message):
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**Downloading** {title[:50]}...\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"‹ يتم البحث الان ›"
                             )
                         print(
                             f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
@@ -548,7 +548,7 @@ async def play(_, message: Message):
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**Downloading** {title[:50]}....\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"‹ يتم التشغيل الان ›"
                             )
                         print(
                             f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
@@ -560,7 +560,7 @@ async def play(_, message: Message):
                     taken = "00:00"
                 size = d["_total_bytes_str"]
                 lel.edit(
-                    f"**Downloaded** {title[:50]}.....\n\n**FileSize:** {size}\n**Time Taken:** {taken} sec\n\n**Converting File**[__FFmpeg processing__]"
+                    f"‹ تم التشغيل ›"
                 )
                 print(f"[{url_suffix}] Downloaded| Elapsed: {taken} seconds")
 
@@ -571,7 +571,7 @@ async def play(_, message: Message):
     if await is_active_chat(message.chat.id):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
-            photo="final.png",
+            photo="https://te.legra.ph/file/5fdd8da2461c05d893189.jpg",
             caption="**[Get Additional Information ⚠️]({})**\n\n**👤 Bot User : {}**\n**📀 Track : {}**".format(
                 url,
                 message.from_user.mention(),
@@ -598,14 +598,14 @@ async def play(_, message: Message):
         await music_on(message.chat.id)
         await add_active_chat(message.chat.id)
         await message.reply_photo(
-            photo="final.png",
+            photo="https://te.legra.ph/file/5fdd8da2461c05d893189.jpg",
             reply_markup=keyboard,
             caption="**[Get Additional Information ⚠️]({})\n\n**👤 Bot User : {}**\n🌐 Group : {}**".format(
                 url, message.from_user.mention(), message.chat.title
             ),
         )
 
-    os.remove("final.png")
+    os.remove("https://te.legra.ph/file/5fdd8da2461c05d893189.jpg")
     return await lel.delete()
         
 
