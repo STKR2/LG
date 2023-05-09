@@ -370,7 +370,7 @@ async def play(_, message: Message):
             duration = "NaN"
             views = "NaN"
             keyboard = InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="YouTube 🎬", url="url = f"https://t.me/{UPDATE}")]]
+                [[InlineKeyboardButton(text="YouTube 🎬", url="https://youtube.com")]]
             )
 
         if (dur / 60) > DURATION_LIMIT:
