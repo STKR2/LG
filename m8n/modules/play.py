@@ -319,10 +319,10 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("⚙️ Manage", callback_data="cbmenu"),
-                    InlineKeyboardButton("⚡ Speed", callback_data="speed"),
-                ],
-                [InlineKeyboardButton(text="🗑 Close Pannel", callback_data="cls")],
+                    InlineKeyboardButton("‹ تحكم اونلاين ›", callback_data="cbmenu"),
+                ], 
+                    
+                [InlineKeyboardButton(text="‹ تنظيف ›", callback_data="cls")],
             ]
         )
 
@@ -357,10 +357,10 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("⚙️ Manage", callback_data="cbmenu"),
-                        InlineKeyboardButton("⚡ Speed", callback_data="speed"),
-                    ],
-                    [InlineKeyboardButton(text="🗑 Close Pannel", callback_data="cls")],
+                        InlineKeyboardButton("‹ تحكم اونلاين ›", callback_data="cbmenu"),
+                    ],   
+                        
+                    [InlineKeyboardButton(text="‹ تنظيف ›", callback_data="cls")],
                 ]
             )
 
@@ -486,10 +486,10 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("⚙️ Manage", callback_data="cbmenu"),
-                    InlineKeyboardButton("⚡ Speed", callback_data="speed"),
+                    InlineKeyboardButton("‹ تحكم اونلاين ›", callback_data="cbmenu"),
                 ],
-                [InlineKeyboardButton(text="🗑 Close Pannel", callback_data="cls")],
+                    
+                [InlineKeyboardButton(text="‹ تنظيف ›", callback_data="cls")],
             ]
         )
 
