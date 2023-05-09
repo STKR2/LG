@@ -207,7 +207,7 @@ async def closed(_, query: CallbackQuery):
 
 # play
 @Client.on_message(
-    command(["شغل", f"play@{BOT_USERNAME}"])
+    command(["play", f"play@{BOT_USERNAME}"])
     & filters.group
     & ~filters.edited
     & ~filters.forwarded
@@ -227,7 +227,7 @@ async def play(_, message: Message):
             "🔴 __**Music player is turned off, ask the admin to turn on it on!**__"
         )
         return
-    lel = await message.reply("**‹ يتم التشغيل الان ›**")
+    lel = await message.reply("🔄 **Processing...**")
 
     chid = message.chat.id
 
@@ -311,7 +311,7 @@ async def play(_, message: Message):
         file_name = get_file_name(audio)
         url = f"https://t.me/{UPDATE}"
         title = audio.title
-        thumb_name = "https://te.legra.ph/file/5fdd8da2461c05d893189.png"
+        thumb_name = "https://telegra.ph/file/a7adee6cf365d74734c5d.png"
         thumbnail = thumb_name
         duration = round(audio.duration / 60)
         views = "Locally added"
@@ -319,9 +319,10 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("‹ تحكم اونلاين ›", callback_data="cbmenu"),
+                    InlineKeyboardButton("⚙️ Manage", callback_data="cbmenu"),
+                    InlineKeyboardButton("⚡ Speed", callback_data="speed"),
                 ],
-
+                [InlineKeyboardButton(text="🗑 Close Pannel", callback_data="cls")],
             ]
         )
 
@@ -356,16 +357,16 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("‹ تحكم اونلاين ›", callback_data="cbmenu"),
+                        InlineKeyboardButton("⚙️ Manage", callback_data="cbmenu"),
+                        InlineKeyboardButton("⚡ Speed", callback_data="speed"),
                     ],
-
-
+                    [InlineKeyboardButton(text="🗑 Close Pannel", callback_data="cls")],
                 ]
             )
 
         except Exception as e:
             title = "NaN"
-            thumb_name = "https://te.legra.ph/file/5fdd8da2461c05d893189.png"
+            thumb_name = "https://telegra.ph/file/a7adee6cf365d74734c5d.png"
             duration = "NaN"
             views = "NaN"
             keyboard = InlineKeyboardMarkup(
@@ -398,7 +399,7 @@ async def play(_, message: Message):
                     try:
                         if eta > 2:
                             lel.edit(
-                                f"‹ يتم البحث الان ›"
+                                f"Downloading {title[:50]}\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
                             )
                     except Exception as e:
                         pass
@@ -407,30 +408,30 @@ async def play(_, message: Message):
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**‹ يتم البحث ›**"
+                                f"**Downloading** {title[:50]}..\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
                             )
                         print(
-                            f"‹ يتم البحث الان ›"
+                            f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
                         )
                 if per > 500:
                     if flex[str(bytesx)] == 3:
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**‹ يتم البحث الان ›**"
+                                f"**Downloading** {title[:50]}...\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
                             )
                         print(
-                            f"يتم التشغيل"
+                            f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
                         )
                 if per > 800:
                     if flex[str(bytesx)] == 4:
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**‹ يتم البحث الان ›**"
+                                f"**Downloading** {title[:50]}....\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
                             )
                         print(
-                            f"‹ يتم البحث الان ›"
+                            f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
                         )
             if d["status"] == "finished":
                 try:
@@ -439,9 +440,9 @@ async def play(_, message: Message):
                     taken = "00:00"
                 size = d["_total_bytes_str"]
                 lel.edit(
-                    f"**‹ يتم التشغيل الان ›**"
+                    f"**Downloaded** {title[:50]}.....\n\n**FileSize:** {size}\n**Time Taken:** {taken} sec\n\n**Converting File**[__FFmpeg processing__]"
                 )
-                print(f"[{url_suffix}] تم التنزيل: {taken} خلال")
+                print(f"[{url_suffix}] Downloaded| Elapsed: {taken} seconds")
 
         loop = asyncio.get_event_loop()
         x = await loop.run_in_executor(None, download, url, my_hook)
@@ -451,10 +452,10 @@ async def play(_, message: Message):
             return await lel.edit(
                 "❌ **Song not found! Try searching with the correct title\nExample » /play 295**"
             )
-        await lel.edit("**‹ يتم البحث الان ›**")
+        await lel.edit("🔎 **Finding the song...**")
         query = message.text.split(None, 1)[1]
         # print(query)
-        await lel.edit("**‹ يتم التشغيل الان ›**")
+        await lel.edit("🌟 **Processing sounds...**")
         try:
             results = YoutubeSearch(query, max_results=5).to_dict()
             url = f"https://youtube.com{results[0]['url_suffix']}"
@@ -485,10 +486,10 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("‹ تحكم اونلاين ›", callback_data="cbmenu"),
+                    InlineKeyboardButton("⚙️ Manage", callback_data="cbmenu"),
+                    InlineKeyboardButton("⚡ Speed", callback_data="speed"),
                 ],
-                   
-       
+                [InlineKeyboardButton(text="🗑 Close Pannel", callback_data="cls")],
             ]
         )
 
@@ -518,7 +519,7 @@ async def play(_, message: Message):
                     try:
                         if eta > 2:
                             lel.edit(
-                                f"**‹ يتم البحث الان ›**"
+                                f"Downloading {title[:50]}\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
                             )
                     except Exception as e:
                         pass
@@ -527,30 +528,30 @@ async def play(_, message: Message):
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**‹ يتم البحث الان ›**"
+                                f"**Downloading** {title[:50]}..\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
                             )
                         print(
-                            f"‹ يتم البحث الان ›"
+                            f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
                         )
                 if per > 500:
                     if flex[str(bytesx)] == 3:
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**‹ يتم البحث الان ›**"
+                                f"**Downloading** {title[:50]}...\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
                             )
                         print(
-                            f"‹ يتم البحث الان ›"
+                            f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
                         )
                 if per > 800:
                     if flex[str(bytesx)] == 4:
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**‹ يتم البحث الان ›**"
+                                f"**Downloading** {title[:50]}....\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
                             )
                         print(
-                            f"‹ يتم البحث الان ›"
+                            f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
                         )
             if d["status"] == "finished":
                 try:
@@ -559,9 +560,9 @@ async def play(_, message: Message):
                     taken = "00:00"
                 size = d["_total_bytes_str"]
                 lel.edit(
-                    f"**‹ يتم التشغيل الان ›**"
+                    f"**Downloaded** {title[:50]}.....\n\n**FileSize:** {size}\n**Time Taken:** {taken} sec\n\n**Converting File**[__FFmpeg processing__]"
                 )
-                print(f"[{url_suffix}] تم التنزيل: {taken} خلال")
+                print(f"[{url_suffix}] Downloaded| Elapsed: {taken} seconds")
 
         loop = asyncio.get_event_loop()
         x = await loop.run_in_executor(None, download, url, my_hook)
@@ -570,7 +571,7 @@ async def play(_, message: Message):
     if await is_active_chat(message.chat.id):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
-            photo="https://te.legra.ph/file/5fdd8da2461c05d893189.png",
+            photo="final.png",
             caption="**[Get Additional Information ⚠️]({})**\n\n**👤 Bot User : {}**\n**📀 Track : {}**".format(
                 url,
                 message.from_user.mention(),
@@ -597,17 +598,17 @@ async def play(_, message: Message):
         await music_on(message.chat.id)
         await add_active_chat(message.chat.id)
         await message.reply_photo(
-            photo="https://te.legra.ph/file/5fdd8da2461c05d893189.png",
+            photo="final.png",
             reply_markup=keyboard,
             caption="**[Get Additional Information ⚠️]({})\n\n**👤 Bot User : {}**\n🌐 Group : {}**".format(
                 url, message.from_user.mention(), message.chat.title
             ),
         )
 
-    os.remove("https://te.legra.ph/file/5fdd8da2461c05d893189.png")
-    return await lel.delete()    
+    os.remove("final.png")
+    return await lel.delete()
+        
 
-                        
 
                  
                                 
