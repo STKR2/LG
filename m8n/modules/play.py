@@ -207,7 +207,7 @@ async def closed(_, query: CallbackQuery):
 
 # play
 @Client.on_message(
-    command(["شغل", f"play@{BOT_USERNAME}"])
+    command(["شغل", f"تشغيل"])
     & filters.group
     & ~filters.edited
     & ~filters.forwarded
@@ -219,12 +219,12 @@ async def play(_, message: Message):
     user_id = message.from_user.id
     if message.sender_chat:
         return await message.reply_text(
-            "🔴 __You're an **Anonymous Admin**!__\n│\n╰ Revert back to user account from admin rights."
+            " __انت مستخدم مجهول ** -ارجع ادمن- **!__\n│\n╰ وراها تكدر تشغل البوت."
         )
 
     if message.chat.id in DISABLED_GROUPS:
         await message.reply(
-            "🔴 __**Music player is turned off, ask the admin to turn on it on!**__"
+            " __**- المطور ضايج وطفة البوت راسلة وكله شبيك رحمه لدينك!**__"
         )
         return
     lel = await message.reply("‹ يتم التشغيل الان ›")
@@ -239,20 +239,20 @@ async def play(_, message: Message):
         return
     if not c.can_manage_voice_chats:
         await lel.edit(
-            "I don't have the required permission to perform this action."
-            + "\n❌ **Permission:** Manage Voice Chats"
+            "- انطيني هاي الصلاحية حتى اكدر اشغل."
+            + "\n- صلاحية الاتصال"
         )
         return
     if not c.can_delete_messages:
         await lel.edit(
-            "I don't have the required permission to perform this action."
-            + "\n❌ **Permission:** Delete Message"
+            "- انطيني هاي الصلاحية حتى اكدر اشغل."
+            + "\n- حذف رسائل"
         )
         return
     if not c.can_invite_users:
         await lel.edit(
-            "I don't have the required permission to perform this action."
-            + "\n❌ **Permission:** Invite User Via Invitelink"
+            "- انطيني هاب الصلاحية حتى اكدر اشغل."
+            + "\n- اضافة مستخدمين"
         )
         return
 
@@ -260,7 +260,7 @@ async def play(_, message: Message):
         b = await app.get_chat_member(message.chat.id, ASSID)
         if b.status == "kicked":
             await message.reply_text(
-                f"🔴 {ASSNAME} (@{ASSUSERNAME}) is banned in your chat **{message.chat.title}**\n\nUnban it first to use music"
+                f"الـ {ASSNAME} (@{ASSUSERNAME}) حساب المساعد محظور فك حظرا اولا **{message.chat.title}**\n\n- وراها اكتب انضم او ادخل"
             )
             return
     except UserNotParticipant:
@@ -273,7 +273,7 @@ async def play(_, message: Message):
                 await remove_active_chat(chat_id)
             except Exception as e:
                 await message.reply_text(
-                    f"❌ __**Assistant failed to join**__\n\n**Reason**:{e}"
+                    f" __**- فشل حساب المساعد في الانضمام والسب *__\n\n**Reason**:{e}"
                 )
                 return
         else:
@@ -291,7 +291,7 @@ async def play(_, message: Message):
                 pass
             except Exception as e:
                 return await message.reply_text(
-                    f"❌ __**Assistant failed to join**__\n\n**Reason**:{e}"
+                    f" __**- فشل حساب المساعد في الانضمام والسبب**__\n\n**Reason**:{e}"
                 )
 
     await message.delete()
@@ -450,7 +450,7 @@ async def play(_, message: Message):
     else:
         if len(message.command) < 2:
             return await lel.edit(
-                "❌ **Song not found! Try searching with the correct title\nExample » /play 295**"
+                "‹ الرد على ملف صوتي او اعطاء شيء للبحث ›*"
             )
         await lel.edit("‹ يتم البحث الان ›")
         query = message.text.split(None, 1)[1]
@@ -458,7 +458,7 @@ async def play(_, message: Message):
         await lel.edit("‹ يتم التشغيل الان ›")
         try:
             results = YoutubeSearch(query, max_results=5).to_dict()
-            url = f"https://t.me/{UPDATE}"
+            url = f"https://youtube.com{results[0]['url_suffix']}"
             # print results
             title = results[0]["title"]
             thumbnail = results[0]["thumbnails"][0]
@@ -572,7 +572,7 @@ async def play(_, message: Message):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
             photo="https://te.legra.ph/file/5fdd8da2461c05d893189.jpg",
-            caption="**[- تَم حبيبيَ اެصعَد اެسمعهاެ 🫶🏻.]({})**\n\n**- شغݪهأ أݪأخ : {}**\n**- تم ۅدأعتڪ ضفتها ݪقأئمة أݪأڼتضاࢪ : {}**".format(
+            caption="**[- تم ۅدأعتڪ ضفتها ݪقأئمة أݪأڼتضاࢪ 🫡.]({})**\n\n**- شغݪهأ أݪأخ : {}**\n**- تم ۅدأعتڪ ضفتها ݪقأئمة أݪأڼتضاࢪ : {}**".format(
                 url,
                 message.from_user.mention(),
                 position,
@@ -600,7 +600,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="https://te.legra.ph/file/5fdd8da2461c05d893189.jpg",
             reply_markup=keyboard,
-            caption="**[- تم حبيبي اصعد اسمعها 🫶🏻.]({})\n\n**- شغݪهأ أݪأخ : {}**\n- أسم ڪࢪۅبي : {}**".format(
+            caption="**[- تَم حبيبيَ اެصعَد اެسمعهاެ 🫶🏻.]({})\n\n**- شغݪهأ أݪأخ : {}**\n- أسم ڪࢪۅبي : {}**".format(
                 url, message.from_user.mention(), message.chat.title
             ),
         )
