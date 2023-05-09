@@ -410,9 +410,7 @@ async def play(_, message: Message):
                         if eta > 2:
                             lel.edit(
                                 f"**‹ يتم التشغيل الان ›**"
-                            )
-                        print(
-                            f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta}
+
                         )
                 if per > 500:
                     if flex[str(bytesx)] == 3:
