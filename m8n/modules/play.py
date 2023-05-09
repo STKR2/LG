@@ -321,7 +321,7 @@ async def play(_, message: Message):
                 [
                     InlineKeyboardButton("‹ تحكم اونلاين ›", callback_data="cbmenu"),
                 ],
-                [InlineKeyboardButton(text="‹ تنظيف ›", callback_data="cls")],
+                [InlineKeyboardButton(text="‹ تنظيف ›", callback_data="close")],
             ]
         )
 
@@ -365,7 +365,7 @@ async def play(_, message: Message):
 
         except Exception as e:
             title = "NaN"
-            thumb_name = "https://telegra.ph/file/a7adee6cf365d74734c5d.png"
+            thumb_name = "https://te.legra.ph/file/5fdd8da2461c05d893189.jpg"
             duration = "NaN"
             views = "NaN"
             keyboard = InlineKeyboardMarkup(
@@ -603,7 +603,7 @@ async def play(_, message: Message):
             ),
         )
 
-    os.remove("final.png")
+    os.remove("https://te.legra.ph/file/5fdd8da2461c05d893189.jpg")
     return await lel.delete()    
 
                         
