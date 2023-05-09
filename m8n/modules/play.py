@@ -452,10 +452,10 @@ async def play(_, message: Message):
             return await lel.edit(
                 "❌ **Song not found! Try searching with the correct title\nExample » /play 295**"
             )
-        await lel.edit("🔎 **Finding the song...**")
+        await lel.edit("**‹ يتم البحث الان ›**")
         query = message.text.split(None, 1)[1]
         # print(query)
-        await lel.edit("🌟 **Processing sounds...**")
+        await lel.edit("**‹ يتم التشغيل الان ›**")
         try:
             results = YoutubeSearch(query, max_results=5).to_dict()
             url = f"https://youtube.com{results[0]['url_suffix']}"
