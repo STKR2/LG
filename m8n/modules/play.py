@@ -59,16 +59,14 @@ from m8n.config import (
     UPDATE,
     BOT_USERNAME,
 )
-
 from m8n.utils.filters import command
-from m8n.utils.filters import command, other_filters
 from m8n.utils.decorators import errors, sudo_users_only
 from m8n.utils.administrator import adminsOnly
 from m8n.utils.errors import DurationLimitError
 from m8n.utils.gets import get_url, get_file_name
 from m8n.modules.admins import member_permissions
 
- 
+
 # plus
 chat_id = None
 DISABLED_GROUPS = []
@@ -228,7 +226,7 @@ async def play(_, message: Message):
             "🔴 __**Music player is turned off, ask the admin to turn on it on!**__"
         )
         return
-    lel = await message.reply("**‹ يتم التشغيل الان ›**")
+    lel = await message.reply("🔄 **Processing...**")
 
     chid = message.chat.id
 
@@ -312,7 +310,7 @@ async def play(_, message: Message):
         file_name = get_file_name(audio)
         url = f"https://t.me/{UPDATE}"
         title = audio.title
-        thumb_name = "https://te.legra.ph/file/5fdd8da2461c05d893189.jpg"
+        thumb_name = "https://telegra.ph/file/a7adee6cf365d74734c5d.png"
         thumbnail = thumb_name
         duration = round(audio.duration / 60)
         views = "Locally added"
@@ -320,10 +318,10 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("‹ تحكم اونلاين ›", callback_data="cbmenu"),
+                    InlineKeyboardButton("⚙️ Manage", callback_data="cbmenu"),
+                    InlineKeyboardButton("⚡ Speed", callback_data="speed"),
                 ],
-
-                [InlineKeyboardButton("‹ تنظيف ›", callback_data="Close")],
+                [InlineKeyboardButton(text="🗑 Close Pannel", callback_data="cls")],
             ]
         )
 
@@ -358,16 +356,16 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("‹ تحكم اونلاين ›", callback_data="cbmenu"),
+                        InlineKeyboardButton("⚙️ Manage", callback_data="cbmenu"),
+                        InlineKeyboardButton("⚡ Speed", callback_data="speed"),
                     ],
-
-                    [InlineKeyboardButton(text="‹ تنظيف ›", callback_data="Close")],
+                    [InlineKeyboardButton(text="🗑 Close Pannel", callback_data="cls")],
                 ]
             )
 
         except Exception as e:
             title = "NaN"
-            thumb_name = "https://te.legra.ph/file/5fdd8da2461c05d893189.jpg"
+            thumb_name = "https://telegra.ph/file/a7adee6cf365d74734c5d.png"
             duration = "NaN"
             views = "NaN"
             keyboard = InlineKeyboardMarkup(
@@ -444,22 +442,22 @@ async def play(_, message: Message):
                     f"**Downloaded** {title[:50]}.....\n\n**FileSize:** {size}\n**Time Taken:** {taken} sec\n\n**Converting File**[__FFmpeg processing__]"
                 )
                 print(f"[{url_suffix}] Downloaded| Elapsed: {taken} seconds")
+
         loop = asyncio.get_event_loop()
         x = await loop.run_in_executor(None, download, url, my_hook)
-                            
         file_path = await cconvert(x)
     else:
         if len(message.command) < 2:
             return await lel.edit(
                 "❌ **Song not found! Try searching with the correct title\nExample » /play 295**"
             )
-        await lel.edit(f"‹ يتم التشغيل الان ›")
+        await lel.edit("🔎 **Finding the song...**")
         query = message.text.split(None, 1)[1]
         # print(query)
-        await lel.edit(f"‹ يتم التشغيل الان ›")
+        await lel.edit("🌟 **Processing sounds...**")
         try:
             results = YoutubeSearch(query, max_results=5).to_dict()
-
+            url = f"https://youtube.com{results[0]['url_suffix']}"
             # print results
             title = results[0]["title"]
             thumbnail = results[0]["thumbnails"][0]
@@ -487,10 +485,10 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("‹ تحكم اونلاين ›", callback_data="cbmenu"),
+                    InlineKeyboardButton("⚙️ Manage", callback_data="cbmenu"),
+                    InlineKeyboardButton("⚡ Speed", callback_data="speed"),
                 ],
-
-                [InlineKeyboardButton(text="‹ تنظيف ›", callback_data="Close")],
+                [InlineKeyboardButton(text="🗑 Close Pannel", callback_data="cls")],
             ]
         )
 
@@ -564,17 +562,16 @@ async def play(_, message: Message):
                     f"**Downloaded** {title[:50]}.....\n\n**FileSize:** {size}\n**Time Taken:** {taken} sec\n\n**Converting File**[__FFmpeg processing__]"
                 )
                 print(f"[{url_suffix}] Downloaded| Elapsed: {taken} seconds")
+
         loop = asyncio.get_event_loop()
         x = await loop.run_in_executor(None, download, url, my_hook)
-                    
-                    
         file_path = await cconvert(x)
 
     if await is_active_chat(message.chat.id):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
-            photo="https://te.legra.ph/file/5fdd8da2461c05d893189.jpg",
-            caption="**Get Additional Information ⚠️**\n\n**👤 Bot User : {}**\n**📀 Track : {}**".format(
+            photo="final.png",
+            caption="**[Get Additional Information ⚠️]({})**\n\n**👤 Bot User : {}**\n**📀 Track : {}**".format(
                 url,
                 message.from_user.mention(),
                 position,
@@ -600,12 +597,19 @@ async def play(_, message: Message):
         await music_on(message.chat.id)
         await add_active_chat(message.chat.id)
         await message.reply_photo(
-            photo="https://te.legra.ph/file/5fdd8da2461c05d893189.jpg",
+            photo="final.png",
             reply_markup=keyboard,
-            caption="**Get Additional Information ⚠️\n\n**👤 Bot User : {}**\n🌐 Group : {}**".format(
+            caption="**[Get Additional Information ⚠️]({})\n\n**👤 Bot User : {}**\n🌐 Group : {}**".format(
                 url, message.from_user.mention(), message.chat.title
             ),
         )
 
-    os.remove("https://te.legra.ph/file/5fdd8da2461c05d893189.jpg")
-    return await lel.delete()
+    os.remove("final.png")
+    return await lel.delete()    
+
+                        
+
+                 
+                                
+   
+                
