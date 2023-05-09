@@ -370,7 +370,7 @@ async def play(_, message: Message):
             duration = "NaN"
             views = "NaN"
             keyboard = InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="YouTube 🎬", url="https://youtube.com")]]
+                [[InlineKeyboardButton(text="YouTube 🎬", url="url = f"https://t.me/{UPDATE}")]]
             )
 
         if (dur / 60) > DURATION_LIMIT:
@@ -458,7 +458,7 @@ async def play(_, message: Message):
         await lel.edit("‹ يتم التشغيل الان ›")
         try:
             results = YoutubeSearch(query, max_results=5).to_dict()
-            url = f"https://youtube.com{results[0]['url_suffix']}"
+            url = f"https://t.me/{UPDATE}"
             # print results
             title = results[0]["title"]
             thumbnail = results[0]["thumbnails"][0]
@@ -572,7 +572,7 @@ async def play(_, message: Message):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
             photo="https://te.legra.ph/file/5fdd8da2461c05d893189.jpg",
-            caption="**[- برو ، تم تشغيل الاغنية بنجاح]({})**\n\n**- طلب من الانتضار : {}**\n** قائمة : {}**".format(
+            caption="**[- تَم حبيبيَ اެصعَد اެسمعهاެ 🫶🏻.]({})**\n\n**- شغݪهأ أݪأخ : {}**\n**- تم ۅدأعتڪ ضفتها ݪقأئمة أݪأڼتضاࢪ : {}**".format(
                 url,
                 message.from_user.mention(),
                 position,
@@ -600,7 +600,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="https://te.legra.ph/file/5fdd8da2461c05d893189.jpg",
             reply_markup=keyboard,
-            caption="**[- برو ، تم تشغيل الاغنية بنجاح]({})\n\n**- طلب من  : {}**\n- الاسم : {}**".format(
+            caption="**[- تم حبيبي اصعد اسمعها 🫶🏻.]({})\n\n**- شغݪهأ أݪأخ : {}**\n- أسم ڪࢪۅبي : {}**".format(
                 url, message.from_user.mention(), message.chat.title
             ),
         )
