@@ -227,7 +227,7 @@ async def play(_, message: Message):
             "🔴 __**Music player is turned off, ask the admin to turn on it on!**__"
         )
         return
-    lel = await message.reply("**‹ يتم البحث الان ›**")
+    lel = await message.reply("**‹ يتم التشغيل الان ›**")
 
     chid = message.chat.id
 
