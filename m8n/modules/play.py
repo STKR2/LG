@@ -322,7 +322,7 @@ async def play(_, message: Message):
                     InlineKeyboardButton("‹ تحكم اونلاين ›", callback_data="cbmenu"),
                 ],
                 
-                [InlineKeyboardButton(text="‹ تنظيف ›", callback_data="close")],
+                [InlineKeyboardButton(text="‹ تنظيف ›", callback_data="cls")],
             ]
         )
 
@@ -360,7 +360,7 @@ async def play(_, message: Message):
                         InlineKeyboardButton("‹ تحكم اونلاين ›", callback_data="cbmenu"),
                     ],
 
-                    [InlineKeyboardButton(text="‹ تنظيف ›", callback_data="close")],
+                    [InlineKeyboardButton(text="‹ تنظيف ›", callback_data="cls")],
                 ]
             )
 
@@ -489,7 +489,7 @@ async def play(_, message: Message):
                     InlineKeyboardButton("‹ تحكم اونلاين ›", callback_data="cbmenu"),
                 ],
                 
-                [InlineKeyboardButton(text="‹ تنظيف ›", callback_data="close")],
+                [InlineKeyboardButton(text="‹ تنظيف ›", callback_data="cls")],
             ]
         )
 
