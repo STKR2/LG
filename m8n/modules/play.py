@@ -227,7 +227,7 @@ async def play(_, message: Message):
             "🔴 __**Music player is turned off, ask the admin to turn on it on!**__"
         )
         return
-    lel = await message.reply("**‹ يتم التشغيل الان ›**")
+    lel = await message.reply("**‹ يتم البحث الان ›**")
 
     chid = message.chat.id
 
@@ -321,6 +321,7 @@ async def play(_, message: Message):
                 [
                     InlineKeyboardButton("‹ تحكم اونلاين ›", callback_data="cbmenu"),
                 ],
+                
                 [InlineKeyboardButton(text="‹ تنظيف ›", callback_data="close")],
             ]
         )
@@ -487,6 +488,7 @@ async def play(_, message: Message):
                 [
                     InlineKeyboardButton("‹ تحكم اونلاين ›", callback_data="cbmenu"),
                 ],
+                
                 [InlineKeyboardButton(text="‹ تنظيف ›", callback_data="cls")],
             ]
         )
