@@ -572,7 +572,7 @@ async def play(_, message: Message):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
             photo="https://te.legra.ph/file/5fdd8da2461c05d893189.jpg",
-            caption="**[Get Additional Information ⚠️]({})**\n\n**👤 Bot User : {}**\n**📀 Track : {}**".format(
+            caption="**[- برو ، تم تشغيل الاغنية بنجاح]({})**\n\n**- طلب من الانتضار : {}**\n** قائمة : {}**".format(
                 url,
                 message.from_user.mention(),
                 position,
@@ -600,7 +600,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="https://te.legra.ph/file/5fdd8da2461c05d893189.jpg",
             reply_markup=keyboard,
-            caption="**[Get Additional Information ⚠️]({})\n\n**👤 Bot User : {}**\n🌐 Group : {}**".format(
+            caption="**[- برو ، تم تشغيل الاغنية بنجاح]({})\n\n**- طلب من  : {}**\n- الاسم : {}**".format(
                 url, message.from_user.mention(), message.chat.title
             ),
         )
