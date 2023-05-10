@@ -185,9 +185,9 @@ async def stats_markup(_, CallbackQuery):
         smex = f"""
 <u>**‹ احصائيات التخزين ›**</u>
 
-**• Storage Avail :** {total[:4]} GiB 
-**• Storage Used :** {used[:4]} GiB
-**• Storage Left :** {free[:4]} GiB"""
+**• التخزين المتوفر :** {total[:4]} GiB 
+**• التخزين المستخدم :** {used[:4]} GiB
+**• التخزين المتبقي :** {free[:4]} GiB"""
         await CallbackQuery.edit_message_text(smex, reply_markup=statsback)
     if command == "bot_stats":
         await CallbackQuery.edit_message_text(
@@ -207,15 +207,15 @@ async def stats_markup(_, CallbackQuery):
             except Exception:
                 continue
         smex = f"""
-<u>**{BOT_NAME} Bot Stats 🤖**</u>
+<u>**‹ احصائيات البوت الرسمية ›**</u>
 
-**• Modules Loaded :** {modules_loaded}
-**• Sudo Users :** {j}
-**• Served Chats :** {len(served_chats)}"""
+**• الوحدات :** {modules_loaded}
+**• عدد المطورين :** {j}
+**• عدد الكروبات :** {len(served_chats)}"""
         await CallbackQuery.edit_message_text(smex, reply_markup=statsback)
     if command == "assis_stats":
         await CallbackQuery.edit_message_text(
-            "Getting Assistant Stats.. Please Wait...", reply_markup=statswait
+            "‹ اعدادات البوت ›", reply_markup=statswait
         )
         groups_ub = channels_ub = bots_ub = privates_ub = total_ub = 0
         async for i in userbot.iter_dialogs():
@@ -231,13 +231,13 @@ async def stats_markup(_, CallbackQuery):
                 privates_ub += 1
 
         smex = f"""
-<u>**{BOT_NAME} Assistant Stats 🚶🏻**</u>
+<u>**‹ احصائيات حساب المساعد ›**</u>
 
-**• Dialogs :** {total_ub}
-**• Groups :** {groups_ub} 
-**• Channels :** {channels_ub} 
-**• Bots :** {bots_ub}
-**• Users :** {privates_ub}"""
+**• الخاص :** {total_ub}
+**• الكروبات :** {groups_ub} 
+**• القنوات :** {channels_ub} 
+**• البوتات :** {bots_ub}
+**• المستخدمين :** {privates_ub}"""
         await CallbackQuery.edit_message_text(smex, reply_markup=statsback)
     if command == "gen_stats":
         start = datetime.now()
@@ -245,12 +245,12 @@ async def stats_markup(_, CallbackQuery):
         end = datetime.now()
         resp = (end - start).microseconds / 1000
         smex = f"""
-<u>**{BOT_NAME} General Stats 🤖**</u>
+<u>**‹ اعدادات البوت  ›**</u>
 
-**Ping :** `{resp} ms`
+**- البنك :** `{resp} مللي ثانية`
 {uptime}
 
-**Get your needed stats from the options given below**"""
+**- يمكنك الحصول على الاحصائيات عن طريق الازرار ادناه**"""
         await CallbackQuery.edit_message_text(smex, reply_markup=stats1)
     if command == "wait_stats":
         await CallbackQuery.answer()
