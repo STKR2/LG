@@ -473,13 +473,13 @@ async def high(_, CallbackQuery):
     chat_id = CallbackQuery.message.chat.id
     if await is_active_chat(chat_id):
             
-        await CallbackQuery.answer("Now streaming in high quality!", show_alert=True)
+        await CallbackQuery.answer("- تم ارتفاع الصوت الى عالي!", show_alert=True)
         await CallbackQuery.edit_message_text(
-        f"**Manage Audio Quality 🔊**\n\nChoose your option from given below to manage audio quality.",
+        f"**‹ يمكنك التحكم في اعدادات جودة الصوت ›**\n\n- لاتنسى كن حذراً.",
         reply_markup=highquality_keyboard
     )
     else:
-        await CallbackQuery.answer(f"Nothing is playing on voice chat.", show_alert=True)
+        await CallbackQuery.answer(f"- ماكو شي مشتغل حب .", show_alert=True)
 
 
 @Client.on_callback_query(filters.regex("low"))
@@ -496,13 +496,13 @@ async def low(_, CallbackQuery):
     chat_id = CallbackQuery.message.chat.id
     if await is_active_chat(chat_id):
             
-        await CallbackQuery.answer("Now streaming in low quality!", show_alert=True)
+        await CallbackQuery.answer("- تم الان يعمل بصوت ضعيف!", show_alert=True)
         await CallbackQuery.edit_message_text(
-        f"**Manage Audio Quality 🔊**\n\nChoose your option from given below to manage audio quality.",
+        f"**‹ يمكنك التحكم في اعدادات جودة الصوت ›**\n\n- لاتنسى كن حذراً",
         reply_markup=lowquality_keyboard
     )
     else:
-        await CallbackQuery.answer(f"Nothing is playing on voice chat.", show_alert=True)
+        await CallbackQuery.answer(f"- ماكو شي مشتغل حب.", show_alert=True)
 
 @Client.on_callback_query(filters.regex("medium"))
 async def medium(_, CallbackQuery):
@@ -518,13 +518,13 @@ async def medium(_, CallbackQuery):
     chat_id = CallbackQuery.message.chat.id
     if await is_active_chat(chat_id):
             
-        await CallbackQuery.answer("Now streaming in medium quality!", show_alert=True)
+        await CallbackQuery.answer("- تم يعمل الان متوسط !", show_alert=True)
         await CallbackQuery.edit_message_text(
-        f"**Manage Audio Quality 🔊**\n\nChoose your option from given below to manage audio quality.",
+        f"**‹ يمكنك التحكم في اعدادات جودة الصوت ›**\n\n- لاتنسى كن حذراً .",
         reply_markup=mediumquality_keyboard
     )
     else:
-        await CallbackQuery.answer(f"Nothing is playing on voice chat.", show_alert=True)
+        await CallbackQuery.answer(f"- ماكو شي مشتغل حب .", show_alert=True)
 
 @Client.on_callback_query(filters.regex("fifth"))
 async def fifth(_, CallbackQuery):
@@ -540,9 +540,9 @@ async def fifth(_, CallbackQuery):
     chat_id = CallbackQuery.message.chat.id
     if await is_active_chat(chat_id):
             
-        await CallbackQuery.answer("Now streaming in 200% volume!", show_alert=True)
+        await CallbackQuery.answer("- تم وسويت الصوت 200!", show_alert=True)
         await CallbackQuery.edit_message_text(
-        f"**Manage Audio Volume 🔊**\n\nIf you want to manage volume through buttons then make a assistant Admin first.",
+        f"**‹ يمكنك التحكم في اعدادات حجم الصوت ›**\n\n- عند استخدامك لحجم الصوت عليك رفع حساب المساعد كمشرف هنا",
         reply_markup=fifth_keyboard
     )
     else:
