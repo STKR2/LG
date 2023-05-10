@@ -40,16 +40,16 @@ from m8n.database.ping import get_readable_time
 def dashmarkup():
     buttons = [
         [
-            InlineKeyboardButton(text="UpTime", callback_data="UPT"),
-            InlineKeyboardButton(text="RAM", callback_data="RAT"),
+            InlineKeyboardButton(text="‹ الوقت ›", callback_data="UPT"),
+            InlineKeyboardButton(text="‹ الرام ›", callback_data="RAT"),
         ],
         [
-            InlineKeyboardButton(text="CPU", callback_data="CPT"),
-            InlineKeyboardButton(text="DISK", callback_data="DIT"),
+            InlineKeyboardButton(text="‹ الذاكرة ›", callback_data="CPT"),
+            InlineKeyboardButton(text="‹ القرص ›", callback_data="DIT"),
         ],
-        [InlineKeyboardButton(text="🔙 BACK", callback_data="settingm")],
+        [InlineKeyboardButton(text="‹ رجوع ›", callback_data="settingm")],
     ]
-    return f"🔧  **{BOT_NAME} Settings**", buttons
+    return f"‹ اعدادات البوت ›", buttons
 
 
 stats1 = InlineKeyboardMarkup(
@@ -92,7 +92,7 @@ statswait = InlineKeyboardMarkup(
     [
         [
             InlineKeyboardButton(
-                text="Getting Bot's Stats....",
+                text="‹ اعدادات البوت ›",
                 callback_data=f"wait_stats",
             )
         ]
@@ -130,12 +130,12 @@ async def gstats(_, message):
     end = datetime.now()
     resp = (end - start).microseconds / 1000
     smex = f"""
-<u>**{BOT_NAME} General Stats 🤖**</u>
+<u>**‹ احصائيات عامه ›**</u>
     
-Ping: `{resp} ms`
+- البنك: `{resp} مللي ثانية`
 {uptime}
 
-**Get your needed stats from the options given below**
+**- احصل على الاحصائيات المطلوبة عن طريق الازرار ادناه**
     """
     await response.edit_text(smex, reply_markup=stats1)
     return
@@ -150,7 +150,7 @@ async def stats_markup(_, CallbackQuery):
     command = CallbackQuery.matches[0].group(1)
     if command == "sys_stats":
         await CallbackQuery.edit_message_text(
-            "Getting System Stats.. Please Wait...", reply_markup=statswait
+            "‹ اعدادات البوت ›", reply_markup=statswait
         )
         sc = platform.system()
         arch = platform.machine()
@@ -162,8 +162,8 @@ async def stats_markup(_, CallbackQuery):
         smex = f"""
 <u>**{BOT_NAME} System Stats 🖥️**</u>
 
-**• Uptime :** {uptime}
-**• System Proc :** Online
+**• الوقت :** {uptime}
+**• نظام التشغيل :** متصل
 **• Platform :** {sc}
 **• Architecture:** {arch}
 **• Ram :** {ram}
@@ -173,7 +173,7 @@ async def stats_markup(_, CallbackQuery):
         await CallbackQuery.edit_message_text(smex, reply_markup=statsback)
     if command == "sto_stats":
         await CallbackQuery.edit_message_text(
-            "Getting Storage Stats.. Please Wait...", reply_markup=statswait
+            "‹ اعدادات البوت  ›", reply_markup=statswait
         )
         hdd = psutil.disk_usage("/")
         total = hdd.total / (1024.0 ** 3)
