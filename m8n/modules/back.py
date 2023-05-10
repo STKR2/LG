@@ -419,7 +419,7 @@ async def cleandb(_, CallbackQuery):
         user_name = CallbackQuery.from_user.first_name
         rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
         await CallbackQuery.edit_message_text(
-        f"✅ __Erased queues successfully__\n│\n╰ بواسطة {rpk}",
+        f" __- تم التنظيف بنجاح__\n│\n╰ بواسطة {rpk}",
         reply_markup=InlineKeyboardMarkup(
             [
             [InlineKeyboardButton("‹ تنظيف ›", callback_data="cls")]])
@@ -435,7 +435,7 @@ async def closed(_, query: CallbackQuery):
     permission = "can_restrict_members"
     if permission not in permissions:
         return await query.answer(
-            "‹ امشي عليك سيد لوط لتبعبص اذا ماعندك مشرف ›.",
+            "‹ امشي عليك سيد لوط لتبعبص اذا ماعندك مشرف ›",
             show_alert=True,
         )
     await query.message.delete()
@@ -450,7 +450,7 @@ async def cbmenu(_, query: CallbackQuery):
     chat_id = query.message.chat.id
     if is_music_playing(chat_id):
           await query.edit_message_text(
-              f"**‹ مرحبا بك في قائمة الاعدادات ›*\n\n- أسم ڪࢪۅبي : {query.message.chat.title}.\n- أيدي ڪࢪۅبي : {query.message.chat.id}\n\n**- يمكنك التحكم في الازرار ولاكن كن حذراً .**",
+              f"**‹ مرحبا بك في قائمة الاعدادات ›\n\n- أسم ڪࢪۅبي : {query.message.chat.title}.\n- أيدي ڪࢪۅبي : {query.message.chat.id}\n\n**- يمكنك التحكم في الازرار ولاكن كن حذراً .**",
 
               reply_markup=menu_keyboard
          )
@@ -475,7 +475,7 @@ async def high(_, CallbackQuery):
             
         await CallbackQuery.answer("- تم ارتفاع الصوت الى عالي!", show_alert=True)
         await CallbackQuery.edit_message_text(
-        f"**‹ يمكنك التحكم في اعدادات جودة الصوت ›**\n\n- لاتنسى كن حذراً.",
+        f"**‹ يمكنك التحكم في اعدادات جودة الصوت ›**\n\n- لاتنسى كن حذراً .",
         reply_markup=highquality_keyboard
     )
     else:
@@ -540,7 +540,7 @@ async def fifth(_, CallbackQuery):
     chat_id = CallbackQuery.message.chat.id
     if await is_active_chat(chat_id):
             
-        await CallbackQuery.answer("- تم وسويت الصوت 200!", show_alert=True)
+        await CallbackQuery.answer("- الصوت تلقائيا 200 ", show_alert=True)
         await CallbackQuery.edit_message_text(
         f"**‹ يمكنك التحكم في اعدادات حجم الصوت ›**\n\n- عند استخدامك لحجم الصوت عليك رفع حساب المساعد كمشرف هنا",
         reply_markup=fifth_keyboard
