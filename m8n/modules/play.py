@@ -139,7 +139,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
 
 
 @Client.on_message(
-    command(["musicplayer", f"musicplayer@{BOT_USERNAME}"])
+    command(["الموسيقى", f"musicplayer@{BOT_USERNAME}"])
     & ~filters.edited
     & ~filters.bot
     & ~filters.private
@@ -148,7 +148,7 @@ async def hfmm(_, message):
     global DISABLED_GROUPS
     if message.sender_chat:
         return await message.reply_text(
-            "🔴 __You're an **Anonymous Admin**!__\n│\n╰ Revert back to user account from admin rights."
+            " __انت مجهول يول**!__\n│\n╰ ارجع ادمن وتدلل."
         )
     permission = "can_delete_messages"
     m = await adminsOnly(permission, message)
@@ -159,36 +159,36 @@ async def hfmm(_, message):
     except:
         return
     if len(message.command) != 2:
-        await message.reply_text("I only know `/musicplayer on` and `/musicplayer off`")
+        await message.reply_text("لتشغيل البوت اكتب الموسيقى on لاطفاء البوت اكتب الموسيقى off يرجى ملاحظة ان الامر للمطورين فقط")
         return
     status = message.text.split(None, 1)[1]
     message.chat.id
     if status in ["ON", "on", "On"]:
-        lel = await message.reply("`Processing...`")
+        lel = await message.reply("`انتضر قليلا ..`")
         if message.chat.id not in DISABLED_GROUPS:
             await lel.edit(
-                f"🔴 __Music player already activate in **{message.chat.title}**__"
+                f" __- البوت مطفي ترا لتلح **{message.chat.title}**__"
             )
             return
         DISABLED_GROUPS.remove(message.chat.id)
         await lel.edit(
-            f"✅ __Music player has been turn on successfully in **{message.chat.title}**__"
+            f" __- تم تشغيل البوت بنجاح **{message.chat.title}**__"
         )
 
     elif status in ["OFF", "off", "Off"]:
-        lel = await message.reply("__`Processing...`__")
+        lel = await message.reply("__'انتضر قليلا ...'__")
 
         if message.chat.id in DISABLED_GROUPS:
             await lel.edit(
-                f"🔴 __Music player already not active in **{message.chat.title}**__"
+                f" __- البوت مطفي لتلح **{message.chat.title}**__"
             )
             return
         DISABLED_GROUPS.append(message.chat.id)
         await lel.edit(
-            f"✅ __Music player has been turn off successfully **{message.chat.title}**__"
+            f"✅ __- تم تشغيل البوت بنجاح**{message.chat.title}**__"
         )
     else:
-        await message.reply_text("I only know `/musicplayer on` and `/musicplayer off`")
+        await message.reply_text("لتشغيل البوت اكتب الموسيقى on لاطفاء البوت اكتب الموسيقى off يرجى ملاحظة ان الامر للمطورين فقط")
 
 
 @Client.on_callback_query(filters.regex(pattern=r"^(cls)$"))
@@ -198,8 +198,8 @@ async def closed(_, query: CallbackQuery):
     permission = "can_restrict_members"
     if permission not in permissions:
         return await query.answer(
-            "You don't have enough permissions to perform this action.\n"
-            + f"❌ Permission: {permission}",
+            "ماعندك هاي الصلاحية انجب\n"
+            + f"السبب : {permission}",
             show_alert=True,
         )
     await query.message.delete()
@@ -268,7 +268,7 @@ async def play(_, message: Message):
             try:
                 await ASS_ACC.join_chat(f"{message.chat.username}")
                 await message.reply(
-                    f"✅ **{ASSNAME} joined successfully**",
+                    f"✅ **{ASSNAME} تم انضم المساعد -**",
                 )
                 await remove_active_chat(chat_id)
             except Exception as e:
@@ -284,7 +284,7 @@ async def play(_, message: Message):
                     link_bokep = f"https://t.me/joinchat/{kontol}"
                 await ASS_ACC.join_chat(link_bokep)
                 await message.reply(
-                    f"✅ **{ASSNAME} joined successfully**",
+                    f"✅ **{ASSNAME} تم انضم المساعد**",
                 )
                 await remove_active_chat(message.chat.id)
             except UserAlreadyParticipant:
