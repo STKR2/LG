@@ -450,7 +450,7 @@ async def play(_, message: Message):
     else:
         if len(message.command) < 2:
             return await lel.edit(
-                "‹ الرد على ملف صوتي او اعطاء شيء للبحث ›*"
+                "‹ الرد على ملف صوتي او اعطاء شيء للبحث ›"
             )
         await lel.edit("‹ يتم البحث الان ›")
         query = message.text.split(None, 1)[1]
