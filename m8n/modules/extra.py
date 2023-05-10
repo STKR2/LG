@@ -49,7 +49,7 @@ async def telegraph(client, message):
     except Exception as document:
         await message.reply(message, text=document)
     else:
-        await message.reply(f"**- تم تحويل الصورة الى رابط تلبجراف بنجاح :\n\nhttps://telegra.ph{response[0]}**", disable_web_page_preview=False)
+        await message.reply(f"**- تم تحويل الصورة الى رابط تليجراف بنجاح :\n\nhttps://telegra.ph{response[0]}**", disable_web_page_preview=False)
     finally:
         os.remove(download_location)
 
