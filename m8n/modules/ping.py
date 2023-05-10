@@ -9,6 +9,9 @@ import psutil
 from m8n import Music_START_TIME, app
 from m8n.utils.time import get_readable_time
 from pyrogram import filters
+from m8n.utils.filters import command
+
+from m8n.utils.filters import command, other_filters
 
 
 async def bot_sys_stats():
