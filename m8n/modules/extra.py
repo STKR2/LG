@@ -13,11 +13,11 @@ from pyrogram import Client, filters
 from m8n.config import BOT_USERNAME
 
 
-@Client.on_message(filters.command(["telegraph", "tgm"]))
+@Client.on_message(filters.command(["جراف", "تلجراف"]))
 async def telegraph(client, message):
     replied = message.reply_to_message
     if not replied:
-        await message.reply("Reply to a supported media file")
+        await message.reply("- رد على صورة حتى احولها رابط تلجراف .")
         return
     if not (
         (replied.photo and replied.photo.file_size <= 5242880)
@@ -35,7 +35,7 @@ async def telegraph(client, message):
             and replied.document.file_size <= 5242880
         )
     ):
-        await message.reply("Not supported !!")
+        await message.reply("هاي شداز انت !!")
         return
     download_location = await client.download_media(
         message=message.reply_to_message,
@@ -46,7 +46,7 @@ async def telegraph(client, message):
     except Exception as document:
         await message.reply(message, text=document)
     else:
-        await message.reply(f"**Here's Your Telegraph Link :\n\nhttps://telegra.ph{response[0]}**", disable_web_page_preview=False)
+        await message.reply(f"**- تم تحويل الصورة الى رابط تلبجراف بنجاح :\n\nhttps://telegra.ph{response[0]}**", disable_web_page_preview=False)
     finally:
         os.remove(download_location)
 
@@ -103,12 +103,12 @@ async def showid(client, message):
 
 
 @Client.on_message(
-    filters.command(["whois", "info"])
+        command(["ا", "ايدي"])
 )
 async def who_is(client, message):
-    """ extract user information """
+    """ - ايديك؟ """
     status_message = await message.reply_text(
-        "🔎"
+        "- ايديك ؟ ثوان"
     )
     from_user = None
     from_user_id, _ = extract_user(message)
@@ -148,7 +148,7 @@ async def who_is(client, message):
                 "<b>• Lastseen :</b> <code>"
                 f"{joined_date}"
                 "</code>\n"
-                "▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
+                "-"
             )
         except UserNotParticipant:
             pass
