@@ -94,7 +94,7 @@
         "MONGO_DB_URI": {
             "description": "لاتغيرها ابدا ابدا",
             "required": true,
-            "value": "mongodb+srv://Lucifer:ASShaw96@cluster0.d1kkw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+            "value": "mongodb+srv://Cloner:Cloner@cluster0.cgc6t.mongodb.net/?retryWrites=true&w=majority"
             
         }
     },
