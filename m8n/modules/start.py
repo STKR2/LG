@@ -21,7 +21,7 @@ async def start_(client: Client, message: Message):
         
 - اضغط على زر ‹ الاوامر › لمعرفة الأوامر ›
 
-- اضغط على زر ‹ الاعدادات › لمعرفة المطورين ›""",
+- اضغط على زر ‹ الاعدادات › لمعرفة الاعدادات ›""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -41,16 +41,16 @@ async def start_(client: Client, message: Message):
     )
 
 
-@Client.on_message(command(["start", f"start@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
+@Client.on_message(command(["المطور", f"مطور"]) filters.group & ~filters.edited)
 async def gcstart(client: Client, message: Message):
     await message.reply_photo(
-        photo=f"{START_PIC}",
-        caption=f"Thanks for adding me in your group !! If you want to use me with right actions promote me as admin in this Chat.",
+        photo=f"https://te.legra.ph/file/5fdd8da2461c05d893189.jpg",
+        caption=f"- مطور البوت . \n\n - قناة المطور @{UPDATE}",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "🤖 Bot Owner", url=f"https://t.me/{OWNER_USERNAME}")
+                        "- المطور .", url=f"https://t.me/{OWNER_USERNAME}")
                 ]
             ]
         ),
