@@ -59,29 +59,4 @@ async def gcstart(client: Client, message: Message):
         ),
     )
 
-    
-    
-  @Client.on_message(
-    command(["الاوامر", f"alive@{BOT_USERNAME}"]) & filters.group & ~filters.edited
-)
 
-async def alive(c: Client, message: Message):
-    chat_id = message.chat.id
-    current_time = datetime.utcnow()
-    uptime_sec = (current_time - START_TIME).total_seconds()
-    uptime = await _human_time_duration(int(uptime_sec))
-    buttons = InlineKeyboardMarkup(
-        [
-            [
-                InlineKeyboardButton("🥇 اوامر البوت ", callback_data="cbevery"),
-            ]
-        ]
-    )
-    text = f"**- تابع الاوامر في الاسفل ↓ **"
-    await c.send_photo(
-        chat_id,
-        photo=f"https://te.legra.ph/file/402c519808f75bd9b1803.jpg",
-        caption=text,
-        reply_markup=buttons,
-    )  
-    
