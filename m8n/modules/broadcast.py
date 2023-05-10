@@ -30,7 +30,7 @@ async def chat_watcher_func(_, message):
     await add_served_chat(chat_id)
 
 
-@app.on_message(command("gcast") & filters.user(SUDO_USERS))
+@app.on_message(command("رسالة") & filters.user(SUDO_USERS))
 async def broadcast_message(_, message):
     if not message.reply_to_message:
         pass
@@ -56,11 +56,11 @@ async def broadcast_message(_, message):
             except Exception:
                 pass
         await message.reply_text(
-            f"**Broadcasted Message In {sent}  Chats with {pin} Pins.**"
+            f"**- تم إذاعة الرسالة  {sent} دردشة {pin} تم تثبيت.**"
         )
         return
     if len(message.command) < 2:
-        await message.reply_text("**Usage**:\n/gcast [message]")
+        await message.reply_text("- الاستخدام : رسالة بالرد على مسج")
         return
     text = message.text.split(None, 1)[1]
     sent = 0
@@ -82,24 +82,24 @@ async def broadcast_message(_, message):
         except Exception:
             pass
     await message.reply_text(
-        f"✈️ **Broadcasted message in {sent} chats and {pin} pins.**"
+        f" **- اذاعة الرسالة {sent} دردشة {pin} تم تثبيت .**"
     )
 
 
 # Broadcast without pinned
 
 
-@app.on_message(command("broadcast") & filters.user(SUDO_USERS) & ~filters.edited)
+@app.on_message(command("اذاعة") & filters.user(SUDO_USERS) & ~filters.edited)
 async def broadcast_message(_, message):
     if len(message.command) < 2:
-        return await message.reply_text("**Usage**:\n/broadcast [message]")
+        return await message.reply_text("- الاستخدام اذاعة بالرد على مسج")
     sleep_time = 0.1
     text = message.text.split(None, 1)[1]
     sent = 0
     schats = await get_served_chats()
     chats = [int(chat["chat_id"]) for chat in schats]
     m = await message.reply_text(
-        f"Broadcast in progress, will take {len(chats) * sleep_time} seconds."
+        f"- الإذاعة قيد التنفيذ {len(chats) * sleep_time} انتظر فقط ."
     )
     for i in chats:
         try:
@@ -110,4 +110,4 @@ async def broadcast_message(_, message):
             await asyncio.sleep(int(e.x))
         except Exception:
             pass
-    await m.edit(f"✈️ **Broadcasted message in {sent} chats.**")
+    await m.edit(f" **- اذاعة الرسالة {sent} كروب .**")
