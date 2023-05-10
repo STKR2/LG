@@ -13,7 +13,7 @@ from pyrogram.types import (InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
 
 
-from m8n.utils.filters import commands 
+from m8n.utils import commands 
 
 
 from pyrogram import filters, Client
