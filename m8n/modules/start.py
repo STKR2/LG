@@ -73,7 +73,7 @@ async def alive(c: Client, message: Message):
     buttons = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("🥇 اوامر البوت ", callback_data="cbevery""),
+                InlineKeyboardButton("🥇 اوامر البوت ", callback_data="cbevery"),
             ]
         ]
     )
