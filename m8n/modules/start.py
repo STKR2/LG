@@ -10,6 +10,8 @@ from m8n.utils.filters import command, other_filters
 from m8n.config import BOT_USERNAME
 from m8n.config import START_PIC
 from m8n.config import BOT_NAME
+from m8n.config import UPDATE
+from m8n.config import OWNER_USERNAME
 
 
 
