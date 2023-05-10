@@ -180,12 +180,12 @@ async def hfmm(_, message):
 
         if message.chat.id in DISABLED_GROUPS:
             await lel.edit(
-                f" __- البوت مطفي لتلح **{message.chat.title}**__"
+                f" __- تم تشغيل بنجاح **{message.chat.title}**__"
             )
             return
         DISABLED_GROUPS.append(message.chat.id)
         await lel.edit(
-            f"✅ __- تم تشغيل البوت بنجاح**{message.chat.title}**__"
+            f" __- تم اطفاء البوت بنجاح**{message.chat.title}**__"
         )
     else:
         await message.reply_text("لتشغيل البوت اكتب الموسيقى on لاطفاء البوت اكتب الموسيقى off يرجى ملاحظة ان الامر للمطورين فقط")
@@ -224,7 +224,7 @@ async def play(_, message: Message):
 
     if message.chat.id in DISABLED_GROUPS:
         await message.reply(
-            " __**- المطور ضايج وطفة البوت راسلة وكله شبيك رحمه لدينك!**__"
+            " __**- المطور ضايج وطفة البوت راسلة وكله شبيك رحمه لدينك! **__"
         )
         return
     lel = await message.reply("‹ يتم التشغيل الان ›")
