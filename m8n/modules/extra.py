@@ -16,7 +16,7 @@ from pyrogram import Client, filters
 from m8n.config import BOT_USERNAME
 
 
-@Client.on_message(filters.command(["جراف", "تلجراف"]))
+@Client.on_message(command(["جراف", "تلجراف"]))
 async def telegraph(client, message):
     replied = message.reply_to_message
     if not replied:
@@ -105,8 +105,7 @@ async def showid(client, message):
 
 
 
-@Client.on_message(command("ا", "ايدي"])
-)
+@@Client.on_message(command(["ا", "ايدي"]))
 async def who_is(client, message):
     """ - ايديك؟ """
     status_message = await message.reply_text(
