@@ -11,13 +11,13 @@ from m8n.tgcalls import client as USER
 
 
 @app.on_message(
-    command(["userbotjoin", "botjoin", "join"]) & ~filters.private & ~filters.bot
+    command(["انضم", "ادخل", "نضم"]) & ~filters.private & ~filters.bot
 )
 @errors
 async def addchannel(client, message):
     if message.sender_chat:
         return await message.reply_text(
-            "🔴 __You're an **Anonymous Admin**!__\n│\n╰ Revert back to user account from admin rights."
+            " __- انت مجهول ماتكدر تستخدم البوت**!__\n│\n╰ ارجع مشرف وتدلل ."
         )
     permission = "can_delete_messages"
     m = await adminsOnly(permission, message)
@@ -31,7 +31,7 @@ async def addchannel(client, message):
             link_bokep = f"https://t.me/joinchat/{kontol}"
     except:
         await message.reply_text(
-            "**Add me admin first**",
+            "**- شلون اضيفة واني معندي مشرف؟**",
         )
         return
 
@@ -44,22 +44,22 @@ async def addchannel(client, message):
         await USER.join_chat(link_bokep)
     except UserAlreadyParticipant:
         await message.reply_text(
-            f"🔴 **{user.first_name} already join this group**",
+            f" **{user.first_name} - موجود والقاسم**",
         )
     except Exception as e:
         print(e)
         await message.reply_text(
-            f"❌ __**Assistant ({user.first_name}) can't join your group due to many join requests for userbot!**__\n‼️ Make sure the user is not banned in the group."
-            f"\n\n» `Manually add the {user.first_name} to your group`",
+            f" __**- المساعد ({user.first_name}) فشل في الانضمام اكتب تحديث وارجع اكتب انضم."
+            f"\n\n- `وتأكد خاف {user.first_name} محظور من المجموعة`",
         )
         return
 
 
-@USER.on_message(filters.group & command(["userbotleave", "odaleave", "odaleft"]))
+@USER.on_message(filters.group & command(["غادر", "اطلع", "برا"]))
 async def rem(USER, message):
     if message.sender_chat:
         return await message.reply_text(
-            "🔴 __You're an **Anonymous Admin**!__\n│\n╰ Revert back to user account from admin rights."
+            " __- انت مجهول ماتكدر تستخدم البوت│\n╰ ارجع ادمن وتدلل."
         )
     permission = "can_delete_messages"
     m = await adminsOnly(permission, message)
@@ -68,12 +68,12 @@ async def rem(USER, message):
     try:
         await USER.send_message(
             message.chat.id,
-            "✅ __Assistant successfully left chat__\n\n Join @UserLazyXBot",
+            " __- اصلا صوجي اجيت دباي__\n\n - مره ثانية اذا تريدوني اجي راسلو المطور معلية بعد @RR8R9",
         )
         await USER.leave_chat(message.chat.id)
     except:
         await message.reply_text(
-            "❌ __**Assistant can't leave your group! probably waiting for floodwaits**__\n\n» Manually remove me from your group</b>"
+            " __**- دوخر مغادر ترا**__\n\n- مغادررررر</b>"
         )
 
         return
