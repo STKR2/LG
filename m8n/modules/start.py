@@ -3,7 +3,7 @@ import asyncio
 from pyrogram import Client, filters, __version__ as pyrover
 from pyrogram.errors import FloodWait, UserNotParticipant
 from pytgcalls import (__version__ as pytover)
-from pyrogram import Client, filters
+from
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, ChatJoinRequest
 from m8n.utils.filters import command
 
@@ -44,7 +44,8 @@ async def start_(client: Client, message: Message):
     )
 
 
-@Client.on_message(command("المطور", f"مطور") & filters.group & ~filters.edited)
+
+@Client.on_message(command(["المطور", f"مطور"]) & filters.group & ~filters.edited)
 async def gcstart(client: Client, message: Message):
     await message.reply_photo(
         photo=f"https://te.legra.ph/file/5fdd8da2461c05d893189.jpg",
