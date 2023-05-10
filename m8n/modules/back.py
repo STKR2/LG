@@ -106,7 +106,7 @@ fifth_keyboard = InlineKeyboardMarkup(
             
         ],[
             
-            InlineKeyboardButton("200% 🔊", callback_data="fifth"),
+            InlineKeyboardButton("200% تم", callback_data="fifth"),
             
         ],[
             InlineKeyboardButton(text="‹ رجوع ›", callback_data=f"cbmenu"),
@@ -124,7 +124,7 @@ fourth_keyboard = InlineKeyboardMarkup(
         ],[
             
             InlineKeyboardButton("100%", callback_data="third"),
-            InlineKeyboardButton("150% 🔊", callback_data="fourth"),
+            InlineKeyboardButton("150% تم", callback_data="fourth"),
             
         ],[
             
@@ -145,7 +145,7 @@ third_keyboard = InlineKeyboardMarkup(
             
         ],[
             
-            InlineKeyboardButton("100% 🔊", callback_data="third"),
+            InlineKeyboardButton("100% تم", callback_data="third"),
             InlineKeyboardButton("150%", callback_data="fourth"),
             
         ],[
@@ -163,7 +163,7 @@ second_keyboard = InlineKeyboardMarkup(
         [
             
             InlineKeyboardButton("20%", callback_data="first"),
-            InlineKeyboardButton("50% 🔊", callback_data="second"),
+            InlineKeyboardButton("50% تم", callback_data="second"),
             
         ],[
             
@@ -184,7 +184,7 @@ first_keyboard = InlineKeyboardMarkup(
     [
         [
             
-            InlineKeyboardButton("20% 🔊", callback_data="first"),
+            InlineKeyboardButton("20% تم", callback_data="first"),
             InlineKeyboardButton("50%", callback_data="second"),
             
         ],[
@@ -289,7 +289,7 @@ async def skipvc(_, CallbackQuery):
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
             """
-Only admin with manage voice chat permission can do this.
+‹ امشي عليك سيد لوط لتبعبص اذا ماعندك مشرف ›
 """,
             show_alert=True,
         )
@@ -304,14 +304,14 @@ Only admin with manage voice chat permission can do this.
             await CallbackQuery.answer()
             await CallbackQuery.message.reply(
                 f"""
-**Skip Button Used By** {rpk}
-• No more songs in Queue
-`Leaving Voice Chat..`
+**- تم تخطي الاغنية بواسطة** {rpk}
+• لايوجد شي قيد التشغيل 
+`- تم مغادرة حساب المساعد`
 """
             )
             await calls.pytgcalls.leave_group_call(chat_id)
             return
-            await CallbackQuery.answer("Voice Chat Skip.!", show_alert=True)     
+            await CallbackQuery.answer("- تم بنجاح !", show_alert=True)     
 
 @Client.on_callback_query(filters.regex("pausevc"))
 async def pausevc(_, CallbackQuery):
@@ -320,7 +320,7 @@ async def pausevc(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Only admin with manage voice chat permission can do this.",
+            "‹ امشي عليك سيد لوط لتبعبص اذا ماعندك مشرف ›",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
@@ -329,13 +329,13 @@ async def pausevc(_, CallbackQuery):
         if await is_music_playing(chat_id):
             await music_off(chat_id)
             await calls.pytgcalls.pause_stream(chat_id)
-            await CallbackQuery.answer("Music Paused Successfully.", show_alert=True)
+            await CallbackQuery.answer("- تم ايقاف الموسيقى مؤقتا .", show_alert=True)
             
         else:
-            await CallbackQuery.answer(f"Nothing is playing on voice chat!", show_alert=True)
+            await CallbackQuery.answer(f"- ماكو شي مشتغل شبيك رحمه لدينك", show_alert=True)
             return
     else:
-        await CallbackQuery.answer(f"Nothing is playing in on voice chat!", show_alert=True)
+        await CallbackQuery.answer(f"- ماكو شي مشتغل شبيك رحمه لدينك !", show_alert=True)
 
 
 @Client.on_callback_query(filters.regex("resumevc"))
@@ -346,7 +346,7 @@ async def resumevc(_, CallbackQuery):
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
             """
-Only admin with manage voice chat permission can do this.
+‹ امشي عليك سيد لوط لتبعبص اذا ماعندك مشرف ›
 """,
             show_alert=True,
         )
@@ -355,17 +355,17 @@ Only admin with manage voice chat permission can do this.
     if await is_active_chat(chat_id):
         if await is_music_playing(chat_id):
             await CallbackQuery.answer(
-                "Nothing is paused in the voice chat.",
+                "- ليش هوه اكو شي مشتغل ؟.",
                 show_alert=True,
             )
             return
         else:
             await music_on(chat_id)
             await calls.pytgcalls.resume_stream(chat_id)
-            await CallbackQuery.answer("Music resumed successfully.", show_alert=True)
+            await CallbackQuery.answer(" - تم إستئناف التشغيل.", show_alert=True)
             
     else:
-        await CallbackQuery.answer(f"Nothing is playing.", show_alert=True)
+        await CallbackQuery.answer(f"- والعباس ماكو شي مشتغل", show_alert=True)
 
 
 @Client.on_callback_query(filters.regex("stopvc"))
@@ -375,7 +375,7 @@ async def stopvc(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Only admin with manage voice chat permission can do this.",
+            "‹ امشي عليك سيد لوط لتبعبص اذا ماعندك مشرف ›",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
@@ -387,13 +387,13 @@ async def stopvc(_, CallbackQuery):
         except Exception:
             pass
         await remove_active_chat(chat_id)
-        await CallbackQuery.answer("Music stream ended.", show_alert=True)
+        await CallbackQuery.answer("- تم انهاء التشغيل بنجاح.", show_alert=True)
         user_id = CallbackQuery.from_user.id
         user_name = CallbackQuery.from_user.first_name
         rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
-        await CallbackQuery.message.reply(f"**• Music successfully stopped by {rpk}.**")
+        await CallbackQuery.message.reply(f"**• تم الايقاف بواسطة {rpk}.**")
     else:
-        await CallbackQuery.answer(f"Nothing is playing on voice chat.", show_alert=True)
+        await CallbackQuery.answer(f"- ماكو شي مشتغل لتخليني افشر", show_alert=True)
 
 @Client.on_callback_query(filters.regex("cleandb"))
 async def cleandb(_, CallbackQuery):
@@ -402,7 +402,7 @@ async def cleandb(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Only admin with manage voice chat permission can do this.",
+            "‹ امشي عليك سيد لوط لتبعبص اذا ماعندك مشرف ›",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
@@ -414,19 +414,19 @@ async def cleandb(_, CallbackQuery):
         except Exception:
             pass
         await remove_active_chat(chat_id)
-        await CallbackQuery.answer("Db cleaned successfully!", show_alert=True)
+        await CallbackQuery.answer("- تم تنظيف التشغيل !", show_alert=True)
         user_id = CallbackQuery.from_user.id
         user_name = CallbackQuery.from_user.first_name
         rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
         await CallbackQuery.edit_message_text(
-        f"✅ __Erased queues successfully__\n│\n╰ Database cleaned by {rpk}",
+        f"✅ __Erased queues successfully__\n│\n╰ بواسطة {rpk}",
         reply_markup=InlineKeyboardMarkup(
             [
-            [InlineKeyboardButton("Close 🗑️", callback_data="cls")]])
+            [InlineKeyboardButton("‹ تنظيف ›", callback_data="cls")]])
         
     )
     else:
-        await CallbackQuery.answer(f"Nothing is playing on voice chat.", show_alert=True)
+        await CallbackQuery.answer(f"- لتكفرني ماكو شي مشتغل .", show_alert=True)
 
 @Client.on_callback_query(filters.regex(pattern=r"^(cls)$"))
 async def closed(_, query: CallbackQuery):
@@ -435,7 +435,7 @@ async def closed(_, query: CallbackQuery):
     permission = "can_restrict_members"
     if permission not in permissions:
         return await query.answer(
-            "You don't have enough permissions to perform this action.",
+            "‹ امشي عليك سيد لوط لتبعبص اذا ماعندك مشرف ›.",
             show_alert=True,
         )
     await query.message.delete()
@@ -443,19 +443,19 @@ async def closed(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbmenu"))
 async def cbmenu(_, query: CallbackQuery):
     if query.message.sender_chat:
-        return await query.answer("you're an Anonymous Admin !\n\n» revert back to user account from admin rights.")
+        return await query.answer("- ماتكدر تبعبص انت مجهول !\n\n- ارجع ادمن وتدلل")
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("Only admins cam use this..!", show_alert=True)
+        return await query.answer("‹ امشي عليك سيد لوط لتبعبص اذا ماعندك مشرف ›", show_alert=True)
     chat_id = query.message.chat.id
     if is_music_playing(chat_id):
           await query.edit_message_text(
-              f"**⚙️ {BOT_NAME} Bot Settings**\n\n📮 Group : {query.message.chat.title}.\n📖 Grp ID : {query.message.chat.id}\n\n**Manage Your Groups Music System By Pressing Buttons Given Below 💡**",
+              f"**‹ مرحبا بك في قائمة الاعدادات ›*\n\n- أسم ڪࢪۅبي : {query.message.chat.title}.\n- أيدي ڪࢪۅبي : {query.message.chat.id}\n\n**- يمكنك التحكم في الازرار ولاكن كن حذراً .**",
 
               reply_markup=menu_keyboard
          )
     else:
-        await query.answer("nothing is currently streaming", show_alert=True)
+        await query.answer("- ماكو شي مشتغل رحمه لدينك", show_alert=True)
 
 
 
@@ -466,7 +466,7 @@ async def high(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Only admin with manage voice chat permission can do this.",
+            "‹ امشي عليك سيد لوط لتبعبص اذا ماعندك مشرف ›",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
@@ -489,7 +489,7 @@ async def low(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Only admin with manage voice chat permission can do this.",
+            "‹ امشي عليك سيد لوط لتبعبص اذا ماعندك مشرف ›",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
@@ -511,7 +511,7 @@ async def medium(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Only admin with manage voice chat permission can do this.",
+            "‹ امشي عليك سيد لوط لتبعبص اذا ماعندك مشرف ›",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
@@ -533,7 +533,7 @@ async def fifth(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Only admin with manage voice chat permission can do this.",
+            "‹ امشي عليك سيد لوط لتبعبص اذا ماعندك مشرف ›",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
@@ -555,7 +555,7 @@ async def fourth(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Only admin with manage voice chat permission can do this.",
+            "‹ امشي عليك سيد لوط لتبعبص اذا ماعندك مشرف ›",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
@@ -577,7 +577,7 @@ async def third(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Only admin with manage voice chat permission can do this.",
+            "‹ امشي عليك سيد لوط لتبعبص اذا ماعندك مشرف ›",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
@@ -600,7 +600,7 @@ async def second(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Only admin with manage voice chat permission can do this.",
+            "‹ امشي عليك سيد لوط لتبعبص اذا ماعندك مشرف ›",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
@@ -623,7 +623,7 @@ async def first(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Only admin with manage voice chat permission can do this.",
+            "‹ امشي عليك سيد لوط لتبعبص اذا ماعندك مشرف ›",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
@@ -645,10 +645,10 @@ async def nonabout(_, query: CallbackQuery):
         reply_markup=InlineKeyboardMarkup(
             [
               [
-                    InlineKeyboardButton("Support 🚶", url=f"https://t.me/{SUPPORT}"),
-                    InlineKeyboardButton("Updates 🤖", url=f"https://t.me/{UPDATE}")
+                    InlineKeyboardButton("‹ الدعم ›", url=f"https://t.me/{SUPPORT}"),
+                    InlineKeyboardButton("‹ المطور ›", url=f"https://t.me/{UPDATE}")
                 ],
-              [InlineKeyboardButton("⬅️ Back", callback_data="cbmenu")]]
+              [InlineKeyboardButton("‹ رجوع ›", callback_data="cbmenu")]]
         ),
     )
 
