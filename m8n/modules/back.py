@@ -206,9 +206,9 @@ highquality_keyboard = InlineKeyboardMarkup(
         [
             
             InlineKeyboardButton("‹ ضعيف ›", callback_data="low"),],
-         [   InlineKeyboardButton("‹ متوسط تم ›", callback_data="medium"),
+         [   InlineKeyboardButton("‹ متوسط ›", callback_data="medium"),
             
-        ],[   InlineKeyboardButton("‹ عالي ›", callback_data="high"),
+        ],[   InlineKeyboardButton("‹ عالي تم ›", callback_data="high"),
             
         ],[
             InlineKeyboardButton(text="‹ رجوع ›", callback_data=f"cbmenu"),
@@ -236,9 +236,9 @@ mediumquality_keyboard = InlineKeyboardMarkup(
         [
             
             InlineKeyboardButton("‹ ضعيف ›", callback_data="low"),],
-         [   InlineKeyboardButton("‹ متوسط ›", callback_data="medium"),
+         [   InlineKeyboardButton("‹ متوسط تم›", callback_data="medium"),
             
-        ],[   InlineKeyboardButton("‹ عالي تم ›", callback_data="high"),
+        ],[   InlineKeyboardButton("‹ عالي ›", callback_data="high"),
             
         ],[
             InlineKeyboardButton(text="‹ رجوع ›", callback_data=f"cbmenu"),
