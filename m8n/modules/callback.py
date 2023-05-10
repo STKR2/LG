@@ -18,7 +18,7 @@ async def cbhome(_, query: CallbackQuery):
 
 - اضغط على زر ‹ الاوامر › لمعرفة الأوامر ›
 
- - اضغط على زر ‹ الاعدادات › لمعرفة المطورين ›""",
+ - اضغط على زر ‹ الاعدادات › لمعرفة الاعدادات ›""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -67,26 +67,19 @@ async def cbcmds_set(_, query: CallbackQuery):
 async def all_set(_, query: CallbackQuery):
     await query.answer("Everyone menu")
     await query.edit_message_text(
-    f"""• /play (song name) or (YT link)
-- plays the song in voice chat of your group 
+    f""" ‹ مرحبا بك في قسم الاوامر ›
 
-• /song (song name) or (YT link)
-- Downloads song in audio File 
+- شغل | بالرد على ملف او اسم اغنية للتشغيل  .
 
-• /tgm or /telegraph
-- generate the link of given media
+- يوت | باسم الاغنية لتحميل اغنية من اليوتيوب .
 
-• /info 
-- show all the information about a given user
+- رابط | لحصول على رابط اغنية من يوت .
 
-• /search or /yt
-- search link of the given song
+- بنك | لفحص بنك البوت والسرعة الممكنه .
 
-• /ping
-- Shows the ping message
+- جراف | لتحويل صورة الى رابط تليجراف .
 
-• @botusername <query> 
-- Get youtube url by inline mode""",
+- مطور البوت | @{UPDATE}""",
         reply_markup=InlineKeyboardMarkup(
             [
               [
@@ -105,27 +98,23 @@ async def all_set(_, query: CallbackQuery):
 async def sudo_set(_, query: CallbackQuery):
     await query.answer("sudo menu")
     await query.edit_message_text(
-    f"""• /restart 
-- restarts the bot in Heroku 
+    f""" ‹ مرحبا بك في قسم اوامر المطورين ›
 
-• /gcast 
-- broadcast your message with pin in the served Chats
+- الاحصائيات | لرؤية احصائيات البوت اخر شهر .
 
-• /broadcast 
-- broadcast your message without pin in the served chats
+- ريستارت | اعادة تشغيل البوت وتحسين السرعة .
 
-• /exec <code> 
-- Execute any Code given by a sudo user of the bot
+- اذاعة | لعمل اذاعة في المجموعات بدون تثبيت .
 
-• /stats
-- shows the Bot's system stats
+- رسالة | لعمل اذاعة لكل المجموعات مع التثبيت .
 
-• /userbotleaveall
-- force the music assistant of the bot to leave all the served Chats""",
+- المغادرة | لمغادرة حساب المساعد من المجموعات .
+
+- مطور البوت | @{UPDATE}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("⬅️ Back", callback_data="cbevery")
+                    InlineKeyboardButton("‹ رجوع ›", callback_data="cbevery")
                 ],
             ]
         ),
@@ -137,30 +126,27 @@ async def sudo_set(_, query: CallbackQuery):
 async def admin_set(_, query: CallbackQuery):
     await query.answer("admins menu")
     await query.edit_message_text(
-    f"""• /skip 
-- skips music in the voice Chat 
+    f""" ‹ مرحبا بك في قسم اوامر المشرفين ›
 
-• /pause 
-- Pause music in the voice chat 
+- كافي | ايقاف تشغيل الاغنية في المجموعة .
 
-• /resume 
-- Resumes music in the voice Chat
+- سكب | تخطي التالية الأغنية في المجموعة .
 
-• /end or /stop
-- stop playing music in the group's voice chat
+- مؤقتا | لإيقاف تشغيل الأغنية مؤقتا .
 
-• /cleandb
-- Clears all raw files in your group which is uploaded by bot
+- استمر | استمرار التشغيل المتوقف مؤقتا .
 
-• /userbotjoin
-- invites the music assistant of the bot in your group
+- تنظيف | لتنظيف التشغيل وتحسين سرعة البوت .
 
-• /userbotleave
-- Bot's music assistant will leaves your group""",
+- انضم | للانضمام حساب المساعد الى المجموعة .
+
+- غادر | لمغادرة حساب المساعد المجموعة .
+
+- مطور البوت | @{UPDATE}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("⬅️ Back", callback_data="cbevery")
+                    InlineKeyboardButton("‹ رجوع ›", callback_data="cbevery")
                 ],
             ]
         ),
@@ -192,58 +178,3 @@ async def about_set(_, query: CallbackQuery):
     )
 
 
-# OTHERS CALLBACK
-@Client.on_callback_query(filters.regex("others"))
-async def others(_, query: CallbackQuery):
-    await query.edit_message_text(
-        f"""Powered By : @{UPDATE}
-
-After you played your song some menu buttons will be comes to manage your music playing on voice chat. All the buttons are as follows :
-
-• ⏸ 
-- Resume Music
-• ▶️
-- Pause Music
-• ⏹ 
-- End Music
-• ⏩
-- Skip Music
-
-Only admins can use this buttons📍""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-              [
-                    InlineKeyboardButton("Support 🚶", url=f"https://t.me/{SUPPORT}"),
-                    InlineKeyboardButton("Updates 🤖", url=f"https://t.me/{UPDATE}")
-                ],
-            [InlineKeyboardButton("Basic Guide & Full Set-up", callback_data="setup")],
-            [InlineKeyboardButton("⬅️ Back", callback_data="cbhome")]]
-        ),
-    )
-
-@Client.on_callback_query(filters.regex("setup"))
-async def setup(_, query: CallbackQuery):
-    await query.edit_message_text(
-        f"""**Basic SetUp Guide for the Bot Usage :**
-
-
-• Add this Bot in your Group.
-
-• Promote it as an administrator with needed powers.
-
-• Now send /play or /userbotjoin command to invite assistant id in your Chat.
-
-• Your All the Set-Up is Done, Now enjoy your favourite music in your groups voice chat without any limitations.
-
-
-Thanks !!
-Please don't forget to Join our Group :
-@{UPDATE}""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("⬅️ Back", callback_data="others")
-                ],
-            ]
-        ),
-    )
