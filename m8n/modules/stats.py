@@ -160,16 +160,16 @@ async def stats_markup(_, CallbackQuery):
         bot_uptime = int(time.time() - boottime)
         uptime = f"{get_readable_time((bot_uptime))}"
         smex = f"""
-<u>**{BOT_NAME} System Stats 🖥️**</u>
+<u>**‹ احصائيات النظام ›**</u>
 
 **• الوقت :** {uptime}
 **• نظام التشغيل :** متصل
-**• Platform :** {sc}
-**• Architecture:** {arch}
-**• Ram :** {ram}
-**• PyTgCalls Version :** {pytover.__version__}
-**• Python Ver :** {pyver.split()[0]}
-**• Pyrogram Ver :** {pyrover}"""
+**• الاستضافة :** {sc}
+**• البناء :** {arch}
+**• الرام :** {ram}
+**• نسخة التشغيل :** {pytover.__version__}
+**• نسخة بايثون :** {pyver.split()[0]}
+**• نسخة بايروجرام :** {pyrover}"""
         await CallbackQuery.edit_message_text(smex, reply_markup=statsback)
     if command == "sto_stats":
         await CallbackQuery.edit_message_text(
@@ -183,7 +183,7 @@ async def stats_markup(_, CallbackQuery):
         free = hdd.free / (1024.0 ** 3)
         free = str(free)
         smex = f"""
-<u>**{BOT_NAME} Storage Stats 🔋**</u>
+<u>**‹ احصائيات التخزين ›**</u>
 
 **• Storage Avail :** {total[:4]} GiB 
 **• Storage Used :** {used[:4]} GiB
@@ -191,7 +191,7 @@ async def stats_markup(_, CallbackQuery):
         await CallbackQuery.edit_message_text(smex, reply_markup=statsback)
     if command == "bot_stats":
         await CallbackQuery.edit_message_text(
-            "Getting Bot Stats.. Please Wait...", reply_markup=statswait
+            "‹ اعدادات البوت ›", reply_markup=statswait
         )
         served_chats = []
         chats = await get_served_chats()
