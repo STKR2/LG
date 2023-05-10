@@ -109,7 +109,7 @@ fifth_keyboard = InlineKeyboardMarkup(
             InlineKeyboardButton("200% 🔊", callback_data="fifth"),
             
         ],[
-            InlineKeyboardButton(text="⬅️ Back", callback_data=f"cbmenu"),
+            InlineKeyboardButton(text="‹ رجوع ›", callback_data=f"cbmenu"),
         ],
     ]
 )
@@ -131,7 +131,7 @@ fourth_keyboard = InlineKeyboardMarkup(
             InlineKeyboardButton("200%", callback_data="fifth"),
             
         ],[
-            InlineKeyboardButton(text="⬅️ Back", callback_data=f"cbmenu"),
+            InlineKeyboardButton(text="‹ رجوع ›", callback_data=f"cbmenu"),
         ],
     ]
 )
@@ -153,7 +153,7 @@ third_keyboard = InlineKeyboardMarkup(
             InlineKeyboardButton("200%", callback_data="fifth"),
             
         ],[
-            InlineKeyboardButton(text="⬅️ Back", callback_data=f"cbmenu"),
+            InlineKeyboardButton(text="‹ رجوع ›", callback_data=f"cbmenu"),
         ],
     ]
 )
@@ -175,7 +175,7 @@ second_keyboard = InlineKeyboardMarkup(
             InlineKeyboardButton("200%", callback_data="fifth"),
             
         ],[
-            InlineKeyboardButton(text="⬅️ Back", callback_data=f"cbmenu"),
+            InlineKeyboardButton(text="‹ رجوع ›", callback_data=f"cbmenu"),
         ],
     ]
 )
@@ -197,7 +197,7 @@ first_keyboard = InlineKeyboardMarkup(
             InlineKeyboardButton("200%", callback_data="fifth"),
             
         ],[
-            InlineKeyboardButton(text="⬅️ Back", callback_data=f"cbmenu"),
+            InlineKeyboardButton(text="‹ رجوع ›", callback_data=f"cbmenu"),
         ],
     ]
 )
@@ -205,14 +205,14 @@ highquality_keyboard = InlineKeyboardMarkup(
     [
         [
             
-            InlineKeyboardButton("Low Quality", callback_data="low"),],
-         [   InlineKeyboardButton("Medium Quality", callback_data="medium"),
+            InlineKeyboardButton("‹ ضعيف ›", callback_data="low"),],
+         [   InlineKeyboardButton("‹ متوسط تم ›", callback_data="medium"),
             
-        ],[   InlineKeyboardButton("High Quality ✅", callback_data="high"),
+        ],[   InlineKeyboardButton("‹ عالي ›", callback_data="high"),
             
         ],[
-            InlineKeyboardButton(text="⬅️ Back", callback_data=f"cbmenu"),
-            InlineKeyboardButton(text="Close 🗑️", callback_data=f"cls"),
+            InlineKeyboardButton(text="‹ رجوع ›", callback_data=f"cbmenu"),
+            InlineKeyboardButton(text="‹ تنظيف ›", callback_data=f"cls"),
         ],
     ]
 )
@@ -220,14 +220,14 @@ lowquality_keyboard = InlineKeyboardMarkup(
     [
         [
             
-            InlineKeyboardButton("Low Quality ✅", callback_data="low"),],
-         [   InlineKeyboardButton("Medium Quality", callback_data="medium"),
+            InlineKeyboardButton("‹ ضعيف تم ›", callback_data="low"),],
+         [   InlineKeyboardButton("‹ متوسط ›", callback_data="medium"),
             
-        ],[   InlineKeyboardButton("High Quality", callback_data="high"),
+        ],[   InlineKeyboardButton("‹ عالي ›", callback_data="high"),
             
         ],[
-            InlineKeyboardButton(text="⬅️ Back", callback_data=f"cbmenu"),
-            InlineKeyboardButton(text="Close 🗑️", callback_data=f"cls"),
+            InlineKeyboardButton(text="‹ رجوع ›", callback_data=f"cbmenu"),
+            InlineKeyboardButton(text="‹ تنظيف ›", callback_data=f"cls"),
         ],
     ]
 )
@@ -235,14 +235,14 @@ mediumquality_keyboard = InlineKeyboardMarkup(
     [
         [
             
-            InlineKeyboardButton("Low Quality", callback_data="low"),],
-         [   InlineKeyboardButton("Medium Quality ✅", callback_data="medium"),
+            InlineKeyboardButton("‹ ضعيف ›", callback_data="low"),],
+         [   InlineKeyboardButton("‹ متوسط ›", callback_data="medium"),
             
-        ],[   InlineKeyboardButton("High Quality", callback_data="high"),
+        ],[   InlineKeyboardButton("‹ عالي تم ›", callback_data="high"),
             
         ],[
-            InlineKeyboardButton(text="⬅️ Back", callback_data=f"cbmenu"),
-            InlineKeyboardButton(text="Close 🗑️", callback_data=f"cls"),
+            InlineKeyboardButton(text="‹ رجوع ›", callback_data=f"cbmenu"),
+            InlineKeyboardButton(text="‹ تنظيف ›", callback_data=f"cls"),
         ],
     ]
 )
@@ -251,11 +251,11 @@ dbclean_keyboard = InlineKeyboardMarkup(
     [
         [
             
-            InlineKeyboardButton("Yes, Proceed !", callback_data="cleandb"),],
-        [    InlineKeyboardButton("Nope, Cancel !", callback_data="cbmenu"),
+            InlineKeyboardButton("يب متأكد .", callback_data="cleandb"),],
+        [    InlineKeyboardButton("لا يمعود اشاقة .", callback_data="cbmenu"),
             
         ],[
-            InlineKeyboardButton(text="⬅️ Back", callback_data=f"cbmenu"),
+            InlineKeyboardButton(text="‹ رجوع ›", callback_data=f"cbmenu"),
         ],
     ]
 )
@@ -269,13 +269,13 @@ menu_keyboard = InlineKeyboardMarkup(
             InlineKeyboardButton("▢", callback_data="stopvc"),
             
         ],[
-            InlineKeyboardButton(text="Volume", callback_data=f"fifth"),
-             InlineKeyboardButton(text="Quality", callback_data=f"high"),
+            InlineKeyboardButton(text="‹ الصوت ›", callback_data=f"fifth"),
+             InlineKeyboardButton(text="‹ الجودة ›", callback_data=f"high"),
         ],[
-            InlineKeyboardButton(text="CleanDB", callback_data=f"dbconfirm"),
-             InlineKeyboardButton(text="About", callback_data=f"nonabout"),
+            InlineKeyboardButton(text="‹ اطفاء عام ›", callback_data=f"dbconfirm"),
+             InlineKeyboardButton(text="‹ الدعم ›", callback_data=f"nonabout"),
         ],[
-             InlineKeyboardButton(text="🗑️ Close Menu", callback_data=f"cls"),
+             InlineKeyboardButton(text="‹ تنظيف ›", callback_data=f"cls"),
         ],
     ]
 )
