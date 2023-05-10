@@ -17,21 +17,21 @@ async def bot_sys_stats():
     mem = psutil.virtual_memory().percent
     disk = psutil.disk_usage("/").percent
     stats = f"""
-Active time: {get_readable_time((bot_uptime))}
-CPU: {cpu}%
-RAM: {mem}%
-Disk: {disk}%
+- وقت التشغيل : {get_readable_time((bot_uptime))}
+الذاكرة: {cpu}%
+الرام: {mem}%
+المساحة: {disk}%
 """
     return stats
 
 
-@app.on_message(filters.command("ping"))
+@app.on_message(command("بنك"))
 async def ping(_, message):
     uptime = await bot_sys_stats()
     start = datetime.now()
-    response = await message.reply_text("`pinging...`")
+    response = await message.reply_text("- ثوان")
     end = datetime.now()
     resp = (end - start).microseconds / 1000
     await response.edit(
-        f"**🏓 Pong !!**\n`{resp} ms`"
+        f"**- بنك البوت**\n {resp} مللي ثانية"
     )
