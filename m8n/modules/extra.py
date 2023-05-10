@@ -102,8 +102,7 @@ async def showid(client, message):
 
 
 
-@Client.on_message(
-        command(["ا", "ايدي"])
+@Client.on_message(command("ا", "ايدي"])
 )
 async def who_is(client, message):
     """ - ايديك؟ """
