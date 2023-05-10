@@ -84,7 +84,7 @@ def song(_, message):
 
         
 @app.on_message(command(["غنيلي", "غني", "غ", "🎙 ¦ غـنيـلي"]))
-async def ihd(client: Client, message: Message):
+async def ihd(client: Client, message: Message, _):
     rl = random.randint(3,267)
     url = f"https://t.me/bsmaatt/{rl}"
     await client.send_voice(message.chat.id,url,caption="🔥 ¦ تـم اختيـار الاغـنـية لـك",parse_mode="html",
