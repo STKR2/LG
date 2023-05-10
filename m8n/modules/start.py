@@ -49,8 +49,7 @@ async def gcstart(client: Client, message: Message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(
-                        "- المطور .", url=f"https://t.me/{OWNER_USERNAME}")
+                    InlineKeyboardButton("- المطور .", url=f"https://t.me/{OWNER_USERNAME}")
                 ]
             ]
         ),
