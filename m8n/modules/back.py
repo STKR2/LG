@@ -546,7 +546,7 @@ async def fifth(_, CallbackQuery):
         reply_markup=fifth_keyboard
     )
     else:
-        await CallbackQuery.answer(f"Nothing is playing on voice chat.", show_alert=True)
+        await CallbackQuery.answer(f"- ماكو شي مشتغل حب", show_alert=True)
 
 @Client.on_callback_query(filters.regex("fourth"))
 async def fourth(_, CallbackQuery):
@@ -562,13 +562,13 @@ async def fourth(_, CallbackQuery):
     chat_id = CallbackQuery.message.chat.id
     if await is_active_chat(chat_id):
             
-        await CallbackQuery.answer("Now streaming 150 volume!", show_alert=True)
+        await CallbackQuery.answer("تم وسويت الصوت 150 !", show_alert=True)
         await CallbackQuery.edit_message_text(
-        f"**Manage Audio Volume 🔊**\n\nIf you want to manage volume through buttons then make a assistant Admin first.",
+        f"**‹ يمكنك التحكم في اعدادات حجمه الصوت ›**\n\n- عند استخدامك لحجم الصوت عليك رفع حساب المساعد كمشرف هنا",
         reply_markup=fourth_keyboard
     )
     else:
-        await CallbackQuery.answer(f"Nothing is playing on voice chat.", show_alert=True)
+        await CallbackQuery.answer(f"- ماكو شي مشتغل حب .", show_alert=True)
 
 @Client.on_callback_query(filters.regex("third"))
 async def third(_, CallbackQuery):
@@ -584,13 +584,13 @@ async def third(_, CallbackQuery):
     chat_id = CallbackQuery.message.chat.id
     if await is_active_chat(chat_id):
             
-        await CallbackQuery.answer("Now streaming in 100% volume!", show_alert=True)
+        await CallbackQuery.answer("تم وسويت الصوت 100", show_alert=True)
         await CallbackQuery.edit_message_text(
-        f"**Manage Audio Volume 🔊**\n\nIf you want to manage volume through buttons then make a assistant Admin first.",
+        f"**‹ يمكنك التحكم في اعدادات حجم الصوت ›**\n\n- عند استخدامك لحجم الصوت عليك رفع حساب المساعد كمشرف هنا",
         reply_markup=third_keyboard
     )
     else:
-        await CallbackQuery.answer(f"Nothing is playing on voice chat.", show_alert=True)
+        await CallbackQuery.answer(f"- ماكو شي مشتغل حب", show_alert=True)
 
 
 @Client.on_callback_query(filters.regex("second"))
@@ -607,13 +607,13 @@ async def second(_, CallbackQuery):
     chat_id = CallbackQuery.message.chat.id
     if await is_active_chat(chat_id):
             
-        await CallbackQuery.answer("Now streaming in 50% volume!", show_alert=True)
+        await CallbackQuery.answer("تم وسويت الصوت 50", show_alert=True)
         await CallbackQuery.edit_message_text(
-        f"**Manage Audio Volume 🔊**\n\nIf you want to manage volume through buttons then make a assistant Admin first.",
+        f"**‹ يمكنك التحكم في اعدادات حجم الصوت ›**\n\n- عند استخدامك لحجم الصوت عليك رفع حساب المساعد كمشرف هنا.",
         reply_markup=second_keyboard
     )
     else:
-        await CallbackQuery.answer(f"Nothing is playing on voice chat.", show_alert=True)
+        await CallbackQuery.answer(f"- ماكو شي مشتغل حب.", show_alert=True)
 
 
 @Client.on_callback_query(filters.regex("first"))
@@ -630,18 +630,18 @@ async def first(_, CallbackQuery):
     chat_id = CallbackQuery.message.chat.id
     if await is_active_chat(chat_id):
             
-        await CallbackQuery.answer("Now streaming in 20% volume!", show_alert=True)
+        await CallbackQuery.answer("- تم وسويت الصوت 20!", show_alert=True)
         await CallbackQuery.edit_message_text(
-        f"**Manage Audio Volume 🔊**\n\nIf you want to manage volume through buttons then make a assistant Admin first.",
+        f"**‹ يمكنك التحكم في اعدادات حجم الصوت ›**\n\n- عند استخدامك لحجم الصوت عليك رفع حساب المساعد كمشرف هنا.",
         reply_markup=first_keyboard
     )
     else:
-        await CallbackQuery.answer(f"Nothing is playing on voice chat.", show_alert=True)
+        await CallbackQuery.answer(f"- ماكو شي مشتغل حب .", show_alert=True)
 
 @Client.on_callback_query(filters.regex("nonabout"))
 async def nonabout(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""**Here is the some basic information about to {BOT_NAME},From here you can simply contact us and can join us!**""",
+        f"""**‹ مرحبا بك في قسم الدعم الخاص بالمساعدة › \n\n - يمكنك التواصل مع المطورين عن طريق الازرار ادناه**""",
         reply_markup=InlineKeyboardMarkup(
             [
               [
@@ -656,19 +656,19 @@ async def nonabout(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("dbconfirm"))
 async def dbconfirm(_, query: CallbackQuery):
     if query.message.sender_chat:
-        return await query.answer("you're an Anonymous Admin !\n\n» revert back to user account from admin rights.")
+        return await query.answer("- انت مجهول !\n\n- ارجع ادمن وتدلل .")
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("Only admins cam use this..!", show_alert=True)
+        return await query.answer("‹ امشي عليك سيد لوط لتبعبص اذا ماعندك مشرف ›", show_alert=True)
     chat_id = query.message.chat.id
     if is_music_playing(chat_id):
           await query.edit_message_text(
-              f"**Confirmation ⚠️**\n\nAre you sure want to end stream in {query.message.chat.title} and clean all Queued songs in db ?**",
+              f"**‹ مرحبا بك في قسم الاطفاء العام ›**\n\n- يرجى ملاحظة انَ سيتم اطفاء جميع الاغاني هنا {query.message.chat.title} حتى قوائم الانتضار **",
 
               reply_markup=dbclean_keyboard
          )
     else:
-        await query.answer("nothing is currently streaming", show_alert=True)
+        await query.answer("- ماكو شي مشتغل حب", show_alert=True)
 
 @Client.on_callback_query(filters.regex("speed"))
 async def speed(_, query: CallbackQuery):
