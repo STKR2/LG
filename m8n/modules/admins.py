@@ -17,6 +17,7 @@ from m8n.database.queue import (
     music_off,
 )
 from m8n.tgcalls import calls
+from m8n.admins import admins
 from m8n.utils.filters import command, other_filters
 from m8n.utils.decorators import sudo_users_only
 from m8n.tgcalls.queues import clear, get, is_empty, put, task_done
@@ -50,6 +51,27 @@ async def member_permissions(chat_id: int, user_id: int):
 
 
 from m8n.utils.administrator import adminsOnly
+
+
+
+@app.on_message(command(["تحديث", f"عيد"]) & other_filters)
+
+async def update_admin(client, message: Message):
+    global admins
+    new_admins = []
+    new_ads = await client.get_chat_members(message.chat.id, filter="administrators")
+    for u in new_ads:
+        new_admins.append(u.user.id)
+    admins[message.chat.id] = new_admins
+    await message.reply_text(
+        "✅ تم اعادة **تشغيل البوت** !\n✅ وتم **تحديث** قائمة **المشرفين.**"
+    )
+
+
+
+
+
+
 
 
 @app.on_message(command(["pause"]) & other_filters)
