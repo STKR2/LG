@@ -2,7 +2,7 @@ version: "3.10"
 services:
   worker:
     build: .
-    environment
+    environment:
       SESSION_NAME: $SESSION_NAME
       BOT_TOKEN: $BOT_TOKEN
       BOT_NAME: $BOT_NAME
