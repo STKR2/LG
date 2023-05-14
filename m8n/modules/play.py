@@ -373,7 +373,7 @@ async def play(_, message: Message):
                 [[InlineKeyboardButton(text="YouTube 🎬", url="https://youtube.com")]]
             )
 
-        if (dur / 60) > DURATION_LIMIT:
+        if (60) > DURATION_LIMIT:
             await lel.edit(
                 f"❌ Videos longer than {DURATION_LIMIT} minutes aren't allowed to play!"
             )
