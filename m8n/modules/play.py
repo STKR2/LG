@@ -310,8 +310,8 @@ async def play(_, message: Message):
 
         file_name = get_file_name(audio)
         url = f"https://t.me/{UPDATE}"
-        title = audio.title
-        thumb_name = "https://te.legra.ph/file/5fdd8da2461c05d893189.png"
+        title = "Wa"
+        thumb_name = "https://te.legra.ph/file/5fdd8da2461c05d893189.jpg"
         thumbnail = thumb_name
         duration = round(audio.duration / 60)
         views = "Locally added"
@@ -366,7 +366,7 @@ async def play(_, message: Message):
 
         except Exception as e:
             title = "NaN"
-            thumb_name = "https://te.legra.ph/file/5fdd8da2461c05d893189.png"
+            thumb_name = "https://te.legra.ph/file/5fdd8da2461c05d893189.jpg"
             duration = "NaN"
             views = "NaN"
             keyboard = InlineKeyboardMarkup(
@@ -605,7 +605,7 @@ async def play(_, message: Message):
             ),
         )
 
-    os.remove("https://te.legra.ph/file/5fdd8da2461c05d893189.png")
+    os.remove("https://te.legra.ph/file/5fdd8da2461c05d893189.jpg")
     return await lel.delete()
         
 
