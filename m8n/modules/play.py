@@ -373,14 +373,21 @@ async def play(_, message: Message):
                 [[InlineKeyboardButton(text="YouTube 🎬", url="https://youtube.com")]]
             )
 
-        if (60) > DURATION_LIMIT:
+        except Exception as e:
+            title = "NaN"
+            thumb_name = "https://telegra.ph/file/a7adee6cf365d74734c5d.png"
+            duration = "NaN"
+            views = "NaN"
+            keyboard = InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="YouTube 🎬", url="https://youtube.com")]]
+            )
+        if (dur / 60) > DURATION_LIMIT:
             await lel.edit(
                 f"❌ Videos longer than {DURATION_LIMIT} minutes aren't allowed to play!"
             )
             return
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
-
         def my_hook(d):
             if d["status"] == "downloading":
                 percentage = d["_percent_str"]
