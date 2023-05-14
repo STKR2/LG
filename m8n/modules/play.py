@@ -311,7 +311,7 @@ async def play(_, message: Message):
         file_name = get_file_name(audio)
         url = f"https://t.me/{UPDATE}"
         title = audio.title
-        thumb_name = "https://te.legra.ph/file/5fdd8da2461c05d893189.jpg"
+        thumb_name = "https://te.legra.ph/file/5fdd8da2461c05d893189.png"
         thumbnail = thumb_name
         duration = round(audio.duration / 60)
         views = "Locally added"
@@ -366,7 +366,7 @@ async def play(_, message: Message):
 
         except Exception as e:
             title = "NaN"
-            thumb_name = "https://te.legra.ph/file/5fdd8da2461c05d893189.jpg"
+            thumb_name = "https://te.legra.ph/file/5fdd8da2461c05d893189.png"
             duration = "NaN"
             views = "NaN"
             keyboard = InlineKeyboardMarkup(
@@ -592,7 +592,7 @@ async def play(_, message: Message):
             )
         except Exception:
             return await lel.edit(
-                "Error Joining Voice Chat. Make sure Voice Chat is Enabled."
+                "- شلون اشغل وانتو مفاتحين اتصال شبيكم عمي ."
             )
 
         await music_on(message.chat.id)
@@ -605,7 +605,7 @@ async def play(_, message: Message):
             ),
         )
 
-    os.remove("https://te.legra.ph/file/5fdd8da2461c05d893189.jpg")
+    os.remove("https://te.legra.ph/file/5fdd8da2461c05d893189.png")
     return await lel.delete()
         
 
