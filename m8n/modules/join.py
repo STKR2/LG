@@ -68,7 +68,7 @@ async def rem(USER, message):
     try:
         await USER.send_message(
             message.chat.id,
-            " __- اصلا صوجي اجيت دباي__\n\n - مره ثانية اذا تريدوني اجي راسلو المطور معلية بعد @RR8R9",
+            " __- اصلا صوجي اجيت دباي__\n\n - مره ثانية اذا تريدوني اجي راسلو المطور معلية بعد ",
         )
         await USER.leave_chat(message.chat.id)
     except:
