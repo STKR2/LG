@@ -105,7 +105,7 @@ async def showid(client, message):
 
 
 
-@Client.on_message(command(["ا", "ايدي"]))
+@Client.on_message(command(["djdjaidjj", "jdfjsididj"]))
 async def who_is(client, message):
     """ - ايديك؟ """
     status_message = await message.reply_text(
