@@ -578,7 +578,7 @@ async def play(_, message: Message):
     if await is_active_chat(message.chat.id):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
-            photo="https://te.legra.ph/file/5fdd8da2461c05d893189.jpg",
+            photo="https://graph.org/file/a7a4ba8ac40b7f0bfb46f.jpg",
             caption="**[- تم ضفتها ݪقأئمة أݪأڼتضاࢪ 🫡.]({})**\n\n**- شغݪهأ أݪأخ : {}**\n**- تم ۅدأعتڪ ضفتها ݪقأئمة أݪأڼتضاࢪ : {}**".format(
                 url,
                 message.from_user.mention(),
