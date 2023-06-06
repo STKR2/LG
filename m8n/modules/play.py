@@ -311,7 +311,7 @@ async def play(_, message: Message):
         file_name = get_file_name(audio)
         url = f"https://t.me/{UPDATE}"
         title = "Wa"
-        thumb_name = "https://te.legra.ph/file/5fdd8da2461c05d893189.jpg"
+        thumb_name = "https://graph.org/file/a7a4ba8ac40b7f0bfb46f.jpg"
         thumbnail = thumb_name
         duration = round(audio.duration / 60)
         views = "Locally added"
@@ -366,7 +366,7 @@ async def play(_, message: Message):
 
         except Exception as e:
             title = "NaN"
-            thumb_name = "https://te.legra.ph/file/5fdd8da2461c05d893189.jpg"
+            thumb_name = "https://graph.org/file/a7a4ba8ac40b7f0bfb46f.jpg"
             duration = "NaN"
             views = "NaN"
             keyboard = InlineKeyboardMarkup(
@@ -375,7 +375,7 @@ async def play(_, message: Message):
 
         except Exception as e:
             title = "NaN"
-            thumb_name = "https://graph.org/file/8882cbd7cc786826d9ecb.jpg"
+            thumb_name = "https://graph.org/file/a7a4ba8ac40b7f0bfb46f.jpg"
             duration = "NaN"
             views = "NaN"
             keyboard = InlineKeyboardMarkup(
@@ -485,7 +485,7 @@ async def play(_, message: Message):
 
         except Exception as e:
             await lel.edit(
-                "❌ Song not found.\n\nTry another keyword or `/play [yt url]`."
+                "- لم يتم العثور على الأغنية اكتب اسمها الكامل ."
             )
             print(str(e))
             return
@@ -579,7 +579,7 @@ async def play(_, message: Message):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
             photo="https://te.legra.ph/file/5fdd8da2461c05d893189.jpg",
-            caption="**[- تم ۅدأعتڪ ضفتها ݪقأئمة أݪأڼتضاࢪ 🫡.]({})**\n\n**- شغݪهأ أݪأخ : {}**\n**- تم ۅدأعتڪ ضفتها ݪقأئمة أݪأڼتضاࢪ : {}**".format(
+            caption="**[- تم ضفتها ݪقأئمة أݪأڼتضاࢪ 🫡.]({})**\n\n**- شغݪهأ أݪأخ : {}**\n**- تم ۅدأعتڪ ضفتها ݪقأئمة أݪأڼتضاࢪ : {}**".format(
                 url,
                 message.from_user.mention(),
                 position,
@@ -605,14 +605,14 @@ async def play(_, message: Message):
         await music_on(message.chat.id)
         await add_active_chat(message.chat.id)
         await message.reply_photo(
-            photo="https://te.legra.ph/file/5fdd8da2461c05d893189.jpg",
+            photo="https://graph.org/file/a7a4ba8ac40b7f0bfb46f.jpg",
             reply_markup=keyboard,
             caption="**[- تَم حبيبيَ اެصعَد اެسمعهاެ 🫶🏻.]({})\n\n**- شغݪهأ أݪأخ : {}**\n- أسم ڪࢪۅبي : {}**".format(
                 url, message.from_user.mention(), message.chat.title
             ),
         )
 
-    os.remove("https://te.legra.ph/file/5fdd8da2461c05d893189.jpg")
+    os.remove("https://graph.org/file/a7a4ba8ac40b7f0bfb46f.jpg")
     return await lel.delete()
         
 
