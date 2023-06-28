@@ -169,7 +169,7 @@ async def about_set(_, query: CallbackQuery):
                     InlineKeyboardButton("‹ مطور البوت ›", url=f"https://t.me/{OWNER_USERNAME}"),
                     InlineKeyboardButton("‹ حساب المساعد ›", url=f"https://t.me/{ASSUSERNAME}")
                 ],[
-                    InlineKeyboardButton("‹ السورس ›", url="https://t.me/Xl444")
+                    InlineKeyboardButton("‹ السورس ›", url="https://t.me/X5ZXX")
                 ],[
                     InlineKeyboardButton("‹ رجوع ›", callback_data="cbhome")
                 ],
