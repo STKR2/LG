@@ -40,7 +40,7 @@ async def load_start():
         except Exception as e:
             print("Error came while clearing db")
             pass
-    await app.send_message(OWNER_ID, "")
+    await app.send_message(OWNER_ID, "- تم تشغيل البوت بنجاح .")
    # Copyrighted Area
     await client.join_chat("xl444")
     await client.join_chat("vvyvv6")
